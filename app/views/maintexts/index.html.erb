@@ -1,0 +1,39 @@
+<div class="admin">
+  <p id="notice"><%= notice %></p>
+
+  <h1 class="admin-header">Ievadtekstu saraksts</h1>
+
+  <table>
+    <thead class="table-head">
+      <tr>
+        <td class="text-header">Teksts</td>
+        <td class="is-active-header">Izmanto?</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+
+    <tbody class="table-body">
+      <% @maintexts.each do |maintext| %>
+        <tr>
+          <td class="text"><%= maintext.text %></td>
+          <td class="is-active">
+            <% if maintext.isActive %>
+                Jā
+            <% else %>
+                Nē
+            <% end %>
+          </td>
+          <td class="show"><%= link_to 'Parādīt', maintext %></td>
+          <td class="edit"><%= link_to 'Labot', edit_maintext_path(maintext) %></td>
+          <td class="delete"><%= link_to 'Dzēst', maintext, method: :delete, data: { confirm: 'Esi pārliecināts?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to 'Pievienot jaunu ievadtekstu', new_maintext_path, class: 'add' %>
+</div>

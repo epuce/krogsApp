@@ -1,0 +1,27 @@
+<%= form_for(@maintext) do |f| %>
+  <% if @maintext.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@maintext.errors.count, "error") %> neatļāva saglabāt jo:</h2>
+
+      <ul>
+      <% @maintext.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="text">
+      <%= f.label :text, 'Teksts, kuru vēlies atspoguļot galvenajā sadaļā', class: 'label' %><br>
+      <%= f.text_area :text, class: 'input' %>
+    </div>
+
+    <div class="is-active">
+      <%= f.label :isActive, 'Vai teksts ir redzams?', class: 'label'%><br>
+      <%= f.check_box :isActive, class: 'input' %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Saglabāt', class: 'submit-btn'%>
+    </div>
+<% end %>

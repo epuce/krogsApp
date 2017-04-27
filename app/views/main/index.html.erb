@@ -1,0 +1,10 @@
+<div class="main-text-wrapper">
+  <% @maintexts.each do |maintext| %>
+      <% if maintext.isActive %>
+          <div class="main-text">
+            <%= maintext.text %>
+          </div>
+      <% end %>
+  <% end %>
+</div>
+

@@ -1,0 +1,342 @@
+// Place all the styles related to the Maintexts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+@media (min-width: $desktop-min) {
+  .admin {
+    margin: auto;
+    padding: 20px 10px;
+    width: 100%;
+    max-width: 1025px;
+    color: #000000;
+    box-sizing: border-box;
+    background-color: rgba(128,77,21,0.7);
+
+    &-header {
+      padding: 10px 0;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    .table-head {
+      font-weight: 700;
+
+      td {
+        font-size: 24px;
+        line-height: 2;
+      }
+    }
+
+    .table-body {
+      .text {
+        padding: 20px 10px;
+      }
+
+      td {
+        border: 1px solid #000000;
+        font-size: 22px;
+        line-height: 1;
+
+        &:first-child {
+          border-left: none;
+        }
+        &:last-child {
+          border-right: none;
+        }
+
+        a {
+          margin: 0 15px;
+        }
+      }
+    }
+
+    .add {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .edit_maintext {
+      font-size: 0;
+
+      .text, .is-active {
+        display: inline-table;
+        font-size: 16px;
+
+        .label {
+          margin: 15px 0;
+          display: inline-block;
+          font-weight: 700;
+        }
+      }
+
+      .text {
+        width: 75%;
+
+        .input {
+          width: 100%;
+          height: 100px;
+          font-size: 16px;
+        }
+      }
+
+      .is-active {
+        width: 25%;
+
+        .input {
+          height: 100px;
+        }
+      }
+
+      .submit-btn {
+        width: 150px;
+        height: 30px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet-max) and (min-width: $tablet-min) {
+  .admin {
+    margin: auto;
+    padding: 20px 10px;
+    width: 100%;
+    max-width: 768px;
+    color: #000000;
+    box-sizing: border-box;
+    background-color: rgba(128,77,21,0.7);
+
+    &-header {
+      padding: 10px 0;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    .table-head {
+      font-weight: 700;
+
+      td {
+        font-size: 22px;
+        line-height: 2;
+      }
+    }
+
+    .table-body {
+      .text, .is-active {
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .text {
+        padding: 20px 10px;
+      }
+
+      td {
+        border: 1px solid #000000;
+
+        &:first-child {
+          border-left: none;
+        }
+        &:last-child {
+          border-right: none;
+        }
+
+        a {
+          margin: 0 15px;
+        }
+      }
+    }
+
+    .add {
+      font-size: 26px;
+      font-weight: 700;
+    }
+
+    .edit_maintext {
+      font-size: 0;
+
+      .text, .is-active {
+        display: inline-table;
+        font-size: 16px;
+
+        .label {
+          margin: 15px 0;
+          display: inline-block;
+          font-weight: 700;
+        }
+      }
+
+      .text {
+        width: 75%;
+
+        .input {
+          width: 100%;
+          height: 100px;
+          font-size: 16px;
+        }
+      }
+
+      .is-active {
+        width: 25%;
+
+        .input {
+          height: 100px;
+        }
+      }
+
+      .submit-btn {
+        width: 150px;
+        height: 30px;
+        font-size: 20px;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-max) {
+  .admin {
+    margin: auto;
+    padding: 20px 10px;
+    width: 100%;
+    min-width: 640px;
+    color: #000000;
+    box-sizing: border-box;
+    background-color: rgba(128,77,21,0.7);
+
+    &-header {
+      padding: 10px 0;
+      font-size: 60px;
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    .table-head {
+      font-weight: 700;
+
+      td {
+        font-size: 30px;
+        line-height: 2;
+        display: none;
+      }
+
+      .is-active-header, .text-header {
+        display: inline-block;
+        box-sizing: border-box;
+      }
+
+      .text-header {
+        width: 75%;
+      }
+
+      .is-active-header {
+        width: 25%;
+      }
+    }
+
+    .table-body {
+
+      tr {
+        font-size: 0;
+        display: block;
+      }
+
+      .text, .is-active {
+        height: 100%;
+        display: table-cell;
+        font-size: 37px;
+        line-height: 1;
+        box-sizing: border-box;
+      }
+
+      .text {
+        padding: 20px 10px;
+        width: 75%;
+        border-left: none;
+      }
+
+      .is-active {
+        width: 25%;
+        border-right: none;
+      }
+
+      .delete {
+        border-right: none;
+      }
+
+      .show {
+        border-left: none;
+      }
+
+      td {
+        width: 33.33%;
+        height: 60px;
+        border: 1px solid #000000;
+        display: inline-block;
+        box-sizing: border-box;
+        font-size: 44px;
+        line-height: 60px;
+
+        a {
+          margin: 0 15px;
+        }
+      }
+    }
+
+    .add {
+      font-size: 44px;
+      font-weight: 700;
+    }
+
+    .edit_maintext {
+      font-size: 0;
+
+      .text, .is-active {
+        font-size: 38px;
+
+        .label {
+          margin: 15px 0;
+          display: inline-block;
+          font-size: 44px;
+          font-weight: 700;
+        }
+      }
+
+      .text {
+        .input {
+          font-size: 38px;
+          width: 100%;
+          min-height: 350px;
+        }
+      }
+
+      .is-active {
+        .input {
+          height: 140px;
+          width: 100px;
+        }
+      }
+    }
+
+    .edit, .back, .show {
+      width: 40%;
+      display: inline-block;
+      font-size: 44px;
+    }
+
+    .submit-btn {
+      width: 300px;
+      height: 60px;
+      font-size: 44px;
+      font-weight: 700;
+    }
+  }
+}

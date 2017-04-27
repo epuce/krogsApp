@@ -1,0 +1,47 @@
+// Place all the styles related to the Main controller here.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variables";
+
+.main-text-wrapper {
+  margin: auto;
+  padding: 40px 10px;
+  width: 100%;
+  color: #000000;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: rgba(128, 77, 21, 0.5);
+
+  .main-text {
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (min-width: $desktop-min) {
+  .main-text-wrapper {
+    max-width: 1025px;
+  }
+}
+
+@media (max-width: $tablet-max) and (min-width: $tablet-min) {
+  .main-text-wrapper {
+    max-width: 768px;
+  }
+}
+
+@media (max-width: $mobile-max) {
+  .main-text-wrapper {
+    padding: 20px 30px;
+    min-width: 640px;
+    font-size: 37px;
+    line-height: 55px;
+    text-align: justify;
+  }
+}

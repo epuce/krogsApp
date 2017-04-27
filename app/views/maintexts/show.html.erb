@@ -1,0 +1,23 @@
+<div class="admin">
+  <div class="edit_maintext">
+    <p id="notice"><%= notice %></p>
+    <div class="text">
+      <div class="label">Teksts:</div>
+      <div class="input"><%= @maintext.text %></div>
+    </div>
+
+    <div class="is-active">
+      <div class="label">Vai tiek parādīts:</div>
+      <div class="input">
+        <% if @maintext.isActive %>
+          Jā
+        <% else %>
+          Nē
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Labot', edit_maintext_path(@maintext), class: 'edit'%> |
+    <%= link_to 'Atpakaļ', maintexts_path, class: 'back' %>
+</div>
+

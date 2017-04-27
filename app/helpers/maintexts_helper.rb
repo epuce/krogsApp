@@ -1,0 +1,2 @@
+module MaintextsHelper
+end
