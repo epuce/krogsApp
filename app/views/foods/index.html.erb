@@ -4,7 +4,7 @@
   <h1>Ēdienu saraksts</h1>
 
   <table>
-    <thead>
+    <thead class="table-head">
     <tr>
       <td>Nosaukums</td>
       <td>Raksturojums</td>
@@ -13,7 +13,7 @@
     </tr>
     </thead>
 
-    <tbody>
+    <tbody class="table-body">
       <% @foods.each do |food| %>
         <tr>
           <td class="name">
@@ -40,6 +40,6 @@
 
   <br>
 
-  <%= link_to 'Pievienot jaunu edienu', new_food_path %>
+  <%= link_to 'Pievienot jaunu edienu', new_food_path, class: 'submit-btn'%>
 </div>
 

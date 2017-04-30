@@ -38,7 +38,7 @@
       td {
         border: 1px solid #000000;
         font-size: 22px;
-        line-height: 1;
+        line-height: 1.5;
 
         &:first-child {
           border-left: none;
@@ -49,6 +49,11 @@
 
         a {
           margin: 0 15px;
+        }
+
+        &.edit, &.show, &.delete {
+          border: none;
+          font-weight: 700;
         }
       }
     }
@@ -62,36 +67,40 @@
       &_food {
         font-size: 0;
 
-        .text, .is-active {
-          display: inline-table;
-          font-size: 16px;
+        .name, .description, .price, .group {
+          font-size: 18px;
 
           .label {
             margin: 15px 0;
-            display: inline-block;
             font-weight: 700;
           }
         }
 
-        .text {
-          width: 75%;
-
+        .name, .description {
           .input {
-            width: 100%;
-            height: 100px;
-            font-size: 16px;
+            width: 80%;
+            height: 30px;
           }
         }
 
-        .is-active {
-          width: 25%;
-
+        .price {
           .input {
-            height: 100px;
+            width: 175px;
+            height: 30px;
+            text-align: center;
+          }
+        }
+
+        .group {
+
+          select {
+            width: 175px;
+            height: 30px;
           }
         }
 
         .submit-btn {
+          margin-top: 20px;
           width: 150px;
           height: 30px;
           font-size: 20px;
@@ -152,6 +161,11 @@
         a {
           margin: 0 15px;
         }
+
+        &.edit, &.show, &.delete {
+          border: none;
+          font-weight: 700;
+        }
       }
     }
 
@@ -164,36 +178,40 @@
       &_food {
         font-size: 0;
 
-        .text, .is-active {
-          display: inline-table;
-          font-size: 16px;
+        .name, .description, .price, .group {
+          font-size: 18px;
 
           .label {
             margin: 15px 0;
-            display: inline-block;
             font-weight: 700;
           }
         }
 
-        .text {
-          width: 75%;
-
+        .name, .description {
           .input {
-            width: 100%;
-            height: 100px;
-            font-size: 16px;
+            width: 80%;
+            height: 30px;
           }
         }
 
-        .is-active {
-          width: 25%;
-
+        .price {
           .input {
-            height: 100px;
+            width: 175px;
+            height: 30px;
+            text-align: center;
+          }
+        }
+
+        .group {
+
+          select {
+            width: 175px;
+            height: 30px;
           }
         }
 
         .submit-btn {
+          margin-top: 20px;
           width: 150px;
           height: 30px;
           font-size: 20px;
@@ -212,7 +230,7 @@
     min-width: 640px;
     color: #000000;
     box-sizing: border-box;
-    background-color: rgba(128,77,21,0.7);
+    background-color: rgba(128, 77, 21, 0.7);
 
     &-header {
       padding: 10px 0;
@@ -229,114 +247,67 @@
       td {
         font-size: 30px;
         line-height: 2;
-        display: none;
       }
 
-      .is-active-header, .text-header {
+      .edit, .back, .show {
+        width: 40%;
         display: inline-block;
-        box-sizing: border-box;
-      }
-
-      .text-header {
-        width: 75%;
-      }
-
-      .is-active-header {
-        width: 25%;
-      }
-    }
-
-    .table-body {
-
-      tr {
-        font-size: 0;
-        display: block;
-      }
-
-      .text, .is-active {
-        height: 100%;
-        display: table-cell;
-        font-size: 37px;
-        line-height: 1;
-        box-sizing: border-box;
-      }
-
-      .text {
-        padding: 20px 10px;
-        width: 75%;
-        border-left: none;
-      }
-
-      .is-active {
-        width: 25%;
-        border-right: none;
-      }
-
-      .delete {
-        border-right: none;
-      }
-
-      .show {
-        border-left: none;
-      }
-
-      td {
-        width: 33.33%;
-        height: 60px;
-        border: 1px solid #000000;
-        display: inline-block;
-        box-sizing: border-box;
         font-size: 44px;
-        line-height: 60px;
-
-        a {
-          margin: 0 15px;
-        }
       }
     }
 
-    .add {
-      font-size: 44px;
-      font-weight: 700;
-    }
+    .edit, .new {
+      &_food {
+        font-size: 0;
 
-    .edit_maintext {
-      font-size: 0;
+        .name, .description, .price, .group {
+          font-size: 36px;
 
-      .text, .is-active {
-        font-size: 38px;
+          .label {
+            margin: 15px 0;
+            font-weight: 700;
+          }
+        }
 
-        .label {
-          margin: 15px 0;
-          display: inline-block;
-          font-size: 44px;
-          font-weight: 700;
+        .name {
+          .input {
+            width: 100%;
+            height: 60px;
+            font-size: 28px;
+          }
+        }
+
+        .description {
+          .input {
+            width: 100%;
+            height: 300px;
+            font-size: 28px;
+          }
+        }
+
+        .price {
+          .input {
+            width: 50%;
+            height: 60px;
+            text-align: center;
+            font-size: 36px;
+
+          }
+        }
+
+        .group {
+
+          select {
+            width: 50%;
+            height: 60px;
+            font-size: 26px;
+          }
         }
       }
-
-      .text {
-        .input {
-          font-size: 38px;
-          width: 100%;
-          min-height: 350px;
-        }
-      }
-
-      .is-active {
-        .input {
-          height: 140px;
-          width: 100px;
-        }
-      }
-    }
-
-    .edit, .back, .show {
-      width: 40%;
-      display: inline-block;
-      font-size: 44px;
     }
 
     .submit-btn {
+      margin-top: 20px;
       width: 300px;
       height: 60px;
       font-size: 44px;

@@ -24,10 +24,6 @@ html, body{
   background-attachment: fixed;
   font-family: "Comic Sans MS", cursive, sans-serif;
 
-  & > *{
-    background-color: rgba(226,226,226,0.7)
-  }
-
   &::-webkit-scrollbar {
     width: 0;
   }

@@ -28,29 +28,50 @@
   margin: 20px 0;
 }
 
-.menu-text-wrapper .page {
+.menu-text-wrapper {
   margin: auto;
-  padding: 40px 10px;
-  width: 100%;
-  color: #000000;
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 30px;
-  text-align: center;
-  box-sizing: border-box;
-  background-color: rgba(128, 77, 21, 0.5);
 
-  .group, .food-table {
+  .page {
+    padding: 40px 10px;
     width: 100%;
-  }
-
-  .name, .description {
-    width: 85%;
-    text-align: left;
-  }
-
-  .price {
+    color: #000000;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
     text-align: center;
+    box-sizing: border-box;
+    background-color: rgba(128, 77, 21, 0.5);
+
+    .food {
+      margin-bottom: 15px;
+      width: 100%;
+      display: inline-block;
+    }
+
+    .eur {
+      width: 15%;
+    }
+
+    .group-title {
+      margin-bottom: 30px;
+    }
+
+    .name, .description {
+      width: 85%;
+      display: inline-block;
+      float: left;
+      text-align: left;
+    }
+
+    .description {
+      font-size: 16px;
+    }
+
+    .price {
+      width: 15%;
+      display: inline-block;
+      text-align: center;
+    }
   }
 }
 

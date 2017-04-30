@@ -1,6 +1,33 @@
 <div class="admin foods">
   <p id="notice"><%= notice %></p>
 
+  <table>
+    <thead class="table-head">
+    <tr>
+      <td>Nosaukums</td>
+      <td>Raksturojums</td>
+      <td>Cena</td>
+      <td>Grupa</td>
+    </tr>
+    </thead>
+
+    <tbody class="table-body">
+        <tr>
+          <td class="name">
+            <%= @food.name %>
+          </td>
+          <td class="order">
+            <%= @food.description %>
+          </td>
+          <td class="price">
+            <%= @food.price %>
+          </td>
+          <td class="order">
+            <%= @food.group.text %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
   <%= link_to 'Labot', edit_food_path(@food), class: 'edit' %> |
   <%= link_to 'Atpakaļ', foods_path, class: 'back' %>
 </div>
