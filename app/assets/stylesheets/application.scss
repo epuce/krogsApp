@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 @import "variables";
 
 html, body{
@@ -21,7 +22,7 @@ html, body{
   background: url(background.jpg) center top no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  font-family: "Roboto", Arial, sans-serif;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 
   & > *{
     background-color: rgba(226,226,226,0.7)

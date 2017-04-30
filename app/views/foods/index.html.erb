@@ -1,0 +1,45 @@
+<div class="admin foods">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Ēdienu saraksts</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <td>Nosaukums</td>
+      <td>Raksturojums</td>
+      <td>Cena</td>
+      <td>Grupa</td>
+    </tr>
+    </thead>
+
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td class="name">
+            <%= food.name %>
+          </td>
+          <td class="order">
+            <%= food.description %>
+          </td>
+          <td class="price">
+            <%= food.price %>
+          </td>
+          <td class="order">
+            <%= food.group.text %>
+          </td>
+        </tr>
+        <tr>
+          <td class="show"><%= link_to 'Parādīt', food %></td>
+          <td class="edit"><%= link_to 'Labot', edit_food_path(food) %></td>
+          <td class="delete"><%= link_to 'Dzēst', food, method: :delete, data: { confirm: 'Esi pārliecināts?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Pievienot jaunu edienu', new_food_path %>
+</div>
+

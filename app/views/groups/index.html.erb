@@ -1,25 +1,44 @@
-<p id="notice"><%= notice %></p>
+<div class="admin groups">
+  <p id="notice"><%= notice %></p>
 
-<h1>Listing Groups</h1>
+  <h1>Listing Groups</h1>
 
-<table>
-  <thead>
+  <table class="table">
+    <thead  class="table-head">
     <tr>
-      <th colspan="3"></th>
+      <td>Grupas nosaukums</td>
+      <td>Secība</td>
+      <td>Aktīva?</td>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody class="table-body">
     <% @groups.each do |group| %>
-      <tr>
-        <td><%= link_to 'Show', group %></td>
-        <td><%= link_to 'Edit', edit_group_path(group) %></td>
-        <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr class="group">
+          <td class="text">
+            <%= group.text %></td>
+          <td class="order">
+            <%= group.order %>
+          </td>
+          <td class="is-active">
+            <% if group.isActive %>
+                Jā
+            <% else %>
+                Nē
+            <% end %>
+          </td>
+          <td class="control-panel-btns">
+            <span class="show"><%= link_to 'Parādīt', group %></span>
+            <span class="edit"><%= link_to 'Labot', edit_group_path(group) %></span>
+            <span class="delete"><%= link_to 'Dzēst', group, method: :delete, data: { confirm: 'Esi pārliecināts?' } %></span>
+          </td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Group', new_group_path %>
+  <%= link_to 'Pievienot jaunu grupu', new_group_path, class: 'add' %>
+</div>
+

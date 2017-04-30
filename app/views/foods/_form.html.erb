@@ -1,0 +1,37 @@
+<%= form_for(@food) do |f| %>
+  <% if @food.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h2>
+
+      <ul>
+      <% @food.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="name">
+      <%= f.label :name, 'Ēdiena nosaukums', class: 'label' %><br>
+      <%= f.text_field :name, class: 'input' %>
+    </div>
+
+    <div class="description">
+      <%= f.label :description, 'apraksts?', class: 'label'%><br>
+      <%= f.text_field :description, class: 'input' %>
+    </div>
+
+    <div class="price">
+      <%= f.label :price, 'Cena', class: 'label'%><br>
+      <%= f.number_field :price, step: 0.01, class: 'input' %>
+    </div>
+
+    <div class="group">
+      <%= f.label "Ēdiena kategorija" %><br>
+      <%= f.collection_select :group_id, Group.all, :id, :text %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Saglabāt', class: 'submit-btn'%>
+    </div>
+<% end %>

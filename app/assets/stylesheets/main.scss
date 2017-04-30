@@ -24,14 +24,44 @@
   }
 }
 
+.menu-header {
+  margin: 20px 0;
+}
+
+.menu-text-wrapper .page {
+  margin: auto;
+  padding: 40px 10px;
+  width: 100%;
+  color: #000000;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 30px;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: rgba(128, 77, 21, 0.5);
+
+  .group, .food-table {
+    width: 100%;
+  }
+
+  .name, .description {
+    width: 85%;
+    text-align: left;
+  }
+
+  .price {
+    text-align: center;
+  }
+}
+
 @media (min-width: $desktop-min) {
-  .main-text-wrapper {
+  .main-text-wrapper, .menu-text-wrapper {
     max-width: 1025px;
   }
 }
 
 @media (max-width: $tablet-max) and (min-width: $tablet-min) {
-  .main-text-wrapper {
+  .main-text-wrapper, .menu-text-wrapper {
     max-width: 768px;
   }
 }

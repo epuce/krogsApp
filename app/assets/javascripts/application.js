@@ -15,9 +15,32 @@
 //= require_tree .
 
 $(function() {
-    var $viewportMeta = $('head meta');
+    var $viewportMeta = $('head meta'),
+        $page = $('.page'),
+        food = $page.children(),
+        nextPage,
+        maxPageHeight = 200,
+        height = 0;
 
     if ( navigator.userAgent.match(/(iPhone|android)/)) {
         $viewportMeta.attr('content', 'width=640, user-scalable=no, minimal-ui');
     }
+
+    $page.after('<div class=\'page\'></div>');
+
+    food.each(function(index) {
+        var $this = $(this);
+            height = height + $(this).height();
+
+        if (height > maxPageHeight) {
+            nextPage = $this.parents('.page').next();
+
+            $this.nextAll().appendTo(nextPage);
+            height = 0;
+
+            if (index < food.length()){
+                nextPage = nextPage.after('<div class=\'page\'></div>')
+            }
+        }
+    });
 });

@@ -7,4 +7,49 @@
       <% end %>
   <% end %>
 </div>
+<h1 class="menu-header">Ēdienkarte</h1>
+<div class="menu-text-wrapper">
+  <div class="page">
+  <% @groups.each do |group| %>
+      <div class="group-title">
+        <%= group.text %>
+      </div>
+      <table class="group">
+        <thead>
+          <tr>
+            <td></td>
+            <td>EUR</td>
+          </tr>
+        </thead>
+        <tbody>
+        <% @foods.where(group_id: group.id).find_each do |food| %>
+        <tr class="food">
+          <td colspan="2">
+            <table class="food-table">
+              <tr class="name">
+                <td>
+                  <%= food.name %>
+                </td>
+                <td class="price">
+                  <%= food.price %>
+                </td>
+              <tr>
+                <td class="description">
+                  <%= food.description %>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <% end %>
+        </tbody>
+      </table>
+  <% end %>
+    </div>
+  </div>
+</div>
+
 

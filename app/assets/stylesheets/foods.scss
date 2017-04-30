@@ -1,10 +1,10 @@
-// Place all the styles related to the Maintexts controller here.
+// Place all the styles related to the foods controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "variables";
 
 @media (min-width: $desktop-min) {
-  .admin.maintexts {
+  .admin.foods {
     margin: auto;
     padding: 20px 10px;
     width: 100%;
@@ -59,7 +59,7 @@
     }
 
     .edit, .new {
-      &_maintext {
+      &_food {
         font-size: 0;
 
         .text, .is-active {
@@ -103,7 +103,7 @@
 }
 
 @media (max-width: $tablet-max) and (min-width: $tablet-min) {
-  .admin.maintexts {
+  .admin.foods {
     margin: auto;
     padding: 20px 10px;
     width: 100%;
@@ -161,8 +161,7 @@
     }
 
     .edit, .new {
-      &_maintext {
-
+      &_food {
         font-size: 0;
 
         .text, .is-active {
@@ -206,7 +205,7 @@
 }
 
 @media (max-width: $mobile-max) {
-  .admin.maintexts {
+  .admin.foods {
     margin: auto;
     padding: 20px 10px;
     width: 100%;
@@ -301,34 +300,32 @@
       font-weight: 700;
     }
 
-    .edit, .new {
-      &_maintext {
-        font-size: 0;
+    .edit_maintext {
+      font-size: 0;
 
-        .text, .is-active {
+      .text, .is-active {
+        font-size: 38px;
+
+        .label {
+          margin: 15px 0;
+          display: inline-block;
+          font-size: 44px;
+          font-weight: 700;
+        }
+      }
+
+      .text {
+        .input {
           font-size: 38px;
-
-          .label {
-            margin: 15px 0;
-            display: inline-block;
-            font-size: 44px;
-            font-weight: 700;
-          }
+          width: 100%;
+          min-height: 350px;
         }
+      }
 
-        .text {
-          .input {
-            font-size: 38px;
-            width: 100%;
-            min-height: 350px;
-          }
-        }
-
-        .is-active {
-          .input {
-            height: 140px;
-            width: 100px;
-          }
+      .is-active {
+        .input {
+          height: 140px;
+          width: 100px;
         }
       }
     }
