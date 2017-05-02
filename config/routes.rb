@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :pictures
+  get 'view/index'
+
   resources :foods
   resources :groups
   resources :maintexts

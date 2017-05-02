@@ -10,14 +10,7 @@
 @import "variables";
 
 @media (min-width: $desktop-min) {
-  .admin.groups {
-    margin: auto;
-    padding: 20px 10px;
-    width: 100%;
-    max-width: 1025px;
-    color: #000000;
-    box-sizing: border-box;
-    background-color: rgba(128,77,21,0.7);
+  .groups {
 
     &-header {
       padding: 10px 0;
@@ -118,14 +111,7 @@
 }
 
 @media (max-width: $tablet-max) and (min-width: $tablet-min) {
-  .admin.groups {
-    margin: auto;
-    padding: 20px 10px;
-    width: 100%;
-    max-width: 768px;
-    color: #000000;
-    box-sizing: border-box;
-    background-color: rgba(128,77,21,0.7);
+  .groups {
 
     &-header {
       padding: 10px 0;
@@ -227,14 +213,7 @@
 }
 
 @media (max-width: $mobile-max) {
-  .admin.groups {
-    margin: auto;
-    padding: 20px 10px;
-    width: 100%;
-    min-width: 640px;
-    color: #000000;
-    box-sizing: border-box;
-    background-color: rgba(128,77,21,0.7);
+  .groups {
 
     &-header {
       padding: 10px 0;

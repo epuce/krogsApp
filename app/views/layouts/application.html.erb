@@ -11,21 +11,21 @@
     <header class="header">
         <div class="container">
 	        <div class="logo">
-								<%= link_to image_tag("logo.gif", alt: 'Krodziņš "Šlāgeris"'), root_path(anchor: "home") %>
+								<%= link_to image_tag("logo.gif", alt: 'Krodziņš "Šlāgeris"'), root_path%>
 	        </div>
 	        <nav class="nav">
 	            <ul>
 	                <li class="js-open-drop-down">
-										<%= link_to 'Ēdienkarte', root_path(anchor: "menu"), class:'nav-item' %>
+										<%= link_to 'Ēdienkarte', root_path, class:'nav-item' %>
 	                </li>
 	                <li>
-										<%= link_to raw('Krodziņš 360&deg;'), (root_path(anchor: "view")), class:'nav-item' %>
+										<%= link_to raw('Krodziņš 360&deg;'), root_path, class:'nav-item' %>
 	                </li>
 	                <li>
-										<%= link_to 'Galerija', root_path(anchor: "gallery"), class:'nav-item' %>
+										<%= link_to 'Galerija', root_path, class:'nav-item' %>
 	                </li>
 	                <li>
-										<%= link_to 'Kontakti', root_path(anchor: "info"), class:'nav-item' %>
+										<%= link_to 'Kontakti', root_path, class:'nav-item' %>
 	                </li>
 	            </ul>
 	        </nav>

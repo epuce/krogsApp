@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170430141445) do
+ActiveRecord::Schema.define(version: 20170501101523) do
 
   create_table "foods", force: :cascade do |t|
     t.string   "name"
@@ -35,6 +35,17 @@ ActiveRecord::Schema.define(version: 20170430141445) do
     t.boolean  "isActive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.integer  "order"
+    t.boolean  "isActive"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "name_file_name"
+    t.string   "name_content_type"
+    t.integer  "name_file_size"
+    t.datetime "name_updated_at"
   end
 
 end

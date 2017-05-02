@@ -4,14 +4,7 @@
 @import "variables";
 
 @media (min-width: $desktop-min) {
-  .admin.foods {
-    margin: auto;
-    padding: 20px 10px;
-    width: 100%;
-    max-width: 1025px;
-    color: #000000;
-    box-sizing: border-box;
-    background-color: rgba(128,77,21,0.7);
+  .foods {
 
     &-header {
       padding: 10px 0;
@@ -112,14 +105,7 @@
 }
 
 @media (max-width: $tablet-max) and (min-width: $tablet-min) {
-  .admin.foods {
-    margin: auto;
-    padding: 20px 10px;
-    width: 100%;
-    max-width: 768px;
-    color: #000000;
-    box-sizing: border-box;
-    background-color: rgba(128,77,21,0.7);
+  .foods {
 
     &-header {
       padding: 10px 0;
@@ -223,14 +209,7 @@
 }
 
 @media (max-width: $mobile-max) {
-  .admin.foods {
-    margin: auto;
-    padding: 20px 10px;
-    width: 100%;
-    min-width: 640px;
-    color: #000000;
-    box-sizing: border-box;
-    background-color: rgba(128, 77, 21, 0.7);
+  .foods {
 
     &-header {
       padding: 10px 0;

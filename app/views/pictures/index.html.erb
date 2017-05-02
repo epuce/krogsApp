@@ -1,0 +1,47 @@
+<div class="admin pictures">
+  <p id="notice"><%= notice %></p>
+
+  <h1 class="">Bilžu saraksts</h1>
+
+  <table>
+    <thead class="table-head">
+    <tr>
+      <td>Bilde</td>
+      <td>Secība</td>
+      <td>Tiek parādīta?</td>
+    </tr>
+    </thead>
+
+    <tbody class="table-body">
+    <% @pictures.each do |picture| %>
+        <tr>
+          <td class="picture">
+            <%= image_tag picture.name.url %>
+          </td>
+          <td class="order">
+            <span class="mobile-label">Secība:</span>
+            <%= picture.order %>
+          </td>
+          <td class="is-active">
+            <span class="mobile-label">Tiek parādīta:</span>
+            <% if picture.isActive %>
+                Jā
+            <% else %>
+                Nē
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td class="show" ><%= link_to 'Parādīt', picture %></td>
+          <td class="edit"><%= link_to 'Labot', edit_picture_path(picture) %></td>
+          <td class="delete"><%= link_to 'Dzēst', picture, method: :delete, data: { confirm: 'Vai esi parliecināts?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Pievienot jaunu bildi', new_picture_path, class: 'add' %>
+</div>
+

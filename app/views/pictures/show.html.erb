@@ -1,0 +1,37 @@
+<div class="admin pictures">
+  <p id="notice"><%= notice %></p>
+
+  <table>
+    <thead class="table-head">
+    <tr>
+      <td>Bilde</td>
+      <td>Secība</td>
+      <td>Tiek parādīta?</td>
+    </tr>
+    </thead>
+
+    <tbody class="table-body">
+        <tr>
+          <td class="picture">
+            <%= image_tag @picture.name.url %>
+          </td>
+          <td class="order">
+            <span class="mobile-label">Secība:</span>
+            <%= @picture.order %>
+          </td>
+          <td class="is-active">
+            <span class="mobile-label">Tiek parādīta:</span>
+            <% if @picture.isActive %>
+                Jā
+            <% else %>
+                Nē
+            <% end %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+  <%= link_to 'Labot', edit_picture_path(@picture), class: 'edit' %> |
+  <%= link_to 'Atpakaļ', pictures_path, class: 'back' %>
+</div>
+

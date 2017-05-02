@@ -1,6 +1,33 @@
 <div class="admin groups">
   <p id="notice"><%= notice %></p>
 
+  <table class="table">
+    <thead  class="table-head">
+    <tr>
+      <td>Grupas nosaukums</td>
+      <td>Secība</td>
+      <td>Aktīva?</td>
+    </tr>
+    </thead>
+
+    <tbody class="table-body">
+        <tr class="group">
+          <td class="text">
+            <%= @group.text %></td>
+          <td class="order">
+            <%= @group.order %>
+          </td>
+          <td class="is-active">
+            <% if @group.isActive %>
+                Jā
+            <% else %>
+                Nē
+            <% end %>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
   <%= link_to 'Labot', edit_group_path(@group), class: 'edit' %> |
   <%= link_to 'Atpakaļ', groups_path, class: 'back' %>
 </div>
