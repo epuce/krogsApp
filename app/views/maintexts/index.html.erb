@@ -7,17 +7,17 @@
     <thead class="table-head">
       <tr>
         <td class="text-header">Teksts</td>
+        <td class="order-header">Secība</td>
         <td class="is-active-header">Izmanto?</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td colspan="3"></td>
       </tr>
     </thead>
 
     <tbody class="table-body">
-      <% @maintexts.each do |maintext| %>
+      <% @maintexts.order(:order).each do |maintext| %>
         <tr>
           <td class="text"><%= maintext.text %></td>
+          <td class="order"><%= maintext.order %></td>
           <td class="is-active">
             <% if maintext.isActive %>
                 Jā

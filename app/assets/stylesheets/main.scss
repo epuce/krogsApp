@@ -34,6 +34,12 @@
   padding: 40px 40px 40px 50px;
 
   .page {
+    display: none;
+
+    &:first-child {
+      display: block;
+    }
+
     .food {
       margin-bottom: 15px;
       width: 100%;
@@ -148,6 +154,10 @@
       width: 50%;
       display: table-cell;
       font-size: 20px;
+    }
+
+    .front {
+      width: 100%;
     }
   }
 

@@ -69,6 +69,6 @@ class MaintextsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def maintext_params
-      params.require(:maintext).permit(:text, :isActive)
+      params.require(:maintext).permit(:text, :isActive, :order)
     end
 end

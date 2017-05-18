@@ -1,19 +1,30 @@
-<%= form_for(@maintext) do |f| %>
-  <% if @maintext.errors.any? %>
+<% if @maintext.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@maintext.errors.count, "error") %> neatļāva saglabāt jo:</h2>
-
+      <h2><%= pluralize(@maintext.errors.count, "kļūda ") %>neatļāva saglabāt tekstu jo:</h2>
       <ul>
-      <% @maintext.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @maintext.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
-  <% end %>
+<% end %>
 
+<%= form_for(@maintext) do |f| %>
     <div class="text">
       <%= f.label :text, 'Teksts, kuru vēlies atspoguļot galvenajā sadaļā', class: 'label' %><br>
       <%= f.text_area :text, class: 'input' %>
+    </div>
+
+    <div class="order">
+      <%= f.label :order, 'Grupēšanas secība?', class: 'label'%><br>
+      <%= f.select :order do %>
+          <%= content_tag(:option, @maintext.order, value: @maintext.order)%>
+          <% for i in 1..Maintext.all.length+5 %>
+              <% if !Maintext.where(order: i).exists? %>
+                <%= content_tag(:option, i , value: i)%>
+              <% end %>
+          <% end %>
+      <% end %>
     </div>
 
     <div class="is-active">

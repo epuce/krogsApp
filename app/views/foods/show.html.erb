@@ -7,7 +7,9 @@
       <td>Nosaukums</td>
       <td>Raksturojums</td>
       <td>Cena</td>
+      <td>Secība</td>
       <td>Grupa</td>
+      <td>Parādīts?</td>
     </tr>
     </thead>
 
@@ -23,7 +25,17 @@
             <%= @food.price %>
           </td>
           <td class="order">
+            <%= @food.order %>
+          </td>
+          <td class="group">
             <%= @food.group.text %>
+          </td>
+          <td class="is-active">
+            <% if @food.isActive %>
+                Jā
+            <% else %>
+                Nē
+            <% end %>
           </td>
         </tr>
     </tbody>

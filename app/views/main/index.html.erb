@@ -1,5 +1,5 @@
 <div class="main-text wrapper">
-  <% @maintexts.each do |maintext| %>
+  <% @maintexts.order(:order).each do |maintext| %>
       <% if maintext.isActive %>
           <div class="text">
             <%= maintext.text %>
@@ -11,8 +11,8 @@
 <h1 class="section-header">Ēdienkarte</h1>
 
 <div class="menu wrapper">
-  <div class="page">
   <% @groups.each do |group| %>
+      <div class="page">
         <% if group.isActive %>
             <div class="group-title">
               <%= group.text %>
@@ -31,19 +31,13 @@
                 </div>
             <% end %>
         <% end %>
+      </div>
   <% end %>
-  </div>
 </div>
 
 <h1 class="section-header">Krodziņš 360&deg;</h1>
 
-<div class="view wrapper">
-  <div class="add-scroll-top"></div>
-  <div class="add-scroll-right"></div>
-  <div class="add-scroll-left"></div>
-  <iframe frameborder="0" src="https://skatskat.lv/virtuala-ture/slageris/preview/tour.html"allowfullscreen></iframe>
-  <div class="add-scroll-bottom"></div>
-</div>
+<%= render template: 'view/index' %>
 
 <h1 class="section-header">Galerija</h1>
 
@@ -57,51 +51,7 @@
 
 <h1 class="section-header">Kontakti</h1>
 
-<div class="info wrapper">
-  <div class="left half">
-    <div>
-      Krodziņa telefona numurs:<a class="tel" href="tel:37164807101"> +37164807101</a>
-    </div>
-
-    <div>
-      Beķerejas telefona numurs:<a class="tel" href="tel:37164807100"> +37164807100</a>
-    </div>
-
-    <div class="address">
-      <span>Adrese:</span>  Raiņa iela 10a, Madona
-    </div>
-
-    <img src="">
-
-    <div class="work-time">
-      Darba laiks:
-      <table class="time-table">
-        <tr>
-          <td>Pirmdiena - piektiena</td>
-          <td>11:00-20:00</td>
-        </tr>
-        <tr>
-          <td>Sestdiena</td>
-          <td>11:00-17:00</td>
-        </tr>
-        <tr>
-          <td>Svētdiena</td>
-          <td>SLĒGTS</td>
-        </tr>
-      </table>
-      <div class="stop-time">
-        (virtuve pārstāj darboties 30min pirms darba laika beigām)
-      </div>
-    </div>
-  </div>
-
-  <div class="half right">
-    <div class="right-heading"> Kā mūs atrast </div>
-    <div class="map" style="height: 300px;">
-      <iframe width="100%" height="300" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ4-4QiWmS6UYRIVmCN56PH4o&amp;key=AIzaSyBur_jOBmHxyBYHELuPHG_e7sRcnm0YoSE" allowfullscreen=""></iframe>
-    </div>
-  </div>
-</div>
+<%= render template: 'contacts/index' %>
 
 
 

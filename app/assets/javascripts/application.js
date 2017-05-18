@@ -49,41 +49,6 @@ $(function() {
         }
     }
 
-    food.each(function(index) {
-        var $this = $(this),
-            maxPageHeight = 390 - $this.height();
-
-            height = height + $this.height();
-
-        if (height >= maxPageHeight) {
-            if (index+1 < food.length){
-                $this.parents('.page').after('<div class=\'page\'></div>');
-            }
-
-            nextPage = $this.parents('.page').next();
-
-            if ($this.hasClass('group-title')) {
-                $this.nextAll().andSelf().appendTo(nextPage);
-            } else {
-                $this.nextAll().appendTo(nextPage);
-            }
-
-            height = 0;
-        }
-
-        if (index+1 === food.length) {
-            $('.page').each(function () {
-                $(this).find('.food')
-                    .first()
-                    .before('<div class=\'eur\'>EUR</div>');
-            });
-
-            $menuWrapepr.slick({
-                dots: true
-            });
-        }
-    });
-
     $window.on('scroll', function(){
         var scrolled = $window.scrollTop();
 

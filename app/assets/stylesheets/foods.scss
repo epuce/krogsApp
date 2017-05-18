@@ -44,7 +44,9 @@
           margin: 0 15px;
         }
 
-        &.edit, &.show, &.delete {
+        .edit, .show, .delete {
+          display: inline-block;
+          width: 32%;
           border: none;
           font-weight: 700;
         }
@@ -60,7 +62,7 @@
       &_food {
         font-size: 0;
 
-        .name, .description, .price, .group {
+        .input-block {
           font-size: 18px;
 
           .label {
@@ -84,8 +86,13 @@
           }
         }
 
-        .group {
+        .price, .group, .is-active, .order {
+          width: 25%;
+          display: inline-block;
+          box-sizing: border-box;
+        }
 
+        .group {
           select {
             width: 175px;
             height: 30px;

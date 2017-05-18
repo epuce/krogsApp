@@ -9,7 +9,9 @@
       <td>Nosaukums</td>
       <td>Raksturojums</td>
       <td>Cena</td>
+      <td>Secība</td>
       <td>Grupa</td>
+      <td>Parādīts?</td>
     </tr>
     </thead>
 
@@ -26,13 +28,25 @@
             <%= food.price %>
           </td>
           <td class="order">
+            <%= food.order %>
+          </td>
+          <td class="group">
             <%= food.group.text %>
+          </td>
+          <td class="is-active">
+            <% if food.isActive %>
+                Jā
+            <% else %>
+                Nē
+            <% end %>
           </td>
         </tr>
         <tr>
-          <td class="show"><%= link_to 'Parādīt', food %></td>
-          <td class="edit"><%= link_to 'Labot', edit_food_path(food) %></td>
-          <td class="delete"><%= link_to 'Dzēst', food, method: :delete, data: { confirm: 'Esi pārliecināts?' } %></td>
+          <td colspan="6">
+            <span class="show"><%= link_to 'Parādīt', food %></span>
+            <span class="edit"><%= link_to 'Labot', edit_food_path(food) %></span>
+            <span class="delete"><%= link_to 'Dzēst', food, method: :delete, data: { confirm: 'Esi pārliecināts?' } %></span>
+          </td>
         </tr>
       <% end %>
     </tbody>
