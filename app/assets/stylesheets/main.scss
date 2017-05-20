@@ -131,6 +131,22 @@
   }
 }
 
+.info {
+  .front {
+    width: 100%;
+  }
+
+  .map {
+    height: 300px;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  }
+}
+
 @media (min-width: $desktop-min) {
   .wrapper {
     max-width: 1025px;
