@@ -16,7 +16,7 @@
 
 $(function() {
     var $window = $(window),
-        $viewportMeta = $('head meta'),
+        $viewportMeta = $('meta[name="viewport"]'),
         $header = $('.header'),
         $headerLogo = $header.find('.logo'),
         $menuWrapepr = $('.menu'),
@@ -30,7 +30,7 @@ $(function() {
         height = 0;
 
     if ( navigator.userAgent.match(/(iPhone|android)/)) {
-        $viewportMeta.attr('content', 'width=640, user-scalable=no, minimal-ui');
+        $viewportMeta.attr('content', 'width=640, user-scalable=no');
     }
 
     function headerShadow(scrolled){
