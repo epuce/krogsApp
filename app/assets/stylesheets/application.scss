@@ -238,30 +238,29 @@ a {
     overflow-x: hidden;
   }
 
+  .main-container {
+    top: 440px;
+    min-width: 640px;
+  }
+
   .header {
     min-width: 640px;
-    .container {
-      .nav {
+    .nav-item {
+      height: 70px;
+      line-height: 70px;
+      font-size: 46px;
+    }
 
-        ul {
-          font-size: 0;
-        }
+    .group {
+      .nav-item {
+        font-size: 38px;
+        color: #2b303d;
       }
     }
+
     .logo {
       width: 500px;
       margin: auto;
     }
-
-    li {
-      height: 70px;
-      font-size: 45px;
-      line-height: 70px;
-    }
-  }
-
-  .main-container {
-    top: 440px;
-    min-width: 640px;
   }
 }

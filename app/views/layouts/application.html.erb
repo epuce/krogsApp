@@ -16,24 +16,24 @@
 	        <nav class="nav">
 	            <ul>
 	                <li class="js-open-drop-down">
-										<%= link_to 'Ēdienkarte', root_path, class:'nav-item' %>
+										<%= link_to 'Ēdienkarte', root_path, class:'nav-item js-nav-item', rel: 'nav-1' %>
 
 										<% if User.find_by(id: session[:user_id]) %>
 												<%= link_to 'administrēt', foods_path, class:'nav-admin-item' %>
 										<% end %>
 	                </li>
 	                <li>
-										<%= link_to raw('Krodziņš 360&deg;'), root_path, class:'nav-item' %>
+										<%= link_to raw('Krodziņš 360&deg;'), root_path, class:'nav-item', rel: 'nav-2' %>
 	                </li>
 	                <li>
-										<%= link_to 'Galerija', root_path, class:'nav-item' %>
+										<%= link_to 'Galerija', root_path, class:'nav-item', rel: 'nav-3' %>
 
 										<% if User.find_by(id: session[:user_id]) %>
 												<%= link_to 'administrēt', pictures_path, class:'nav-admin-item' %>
 										<% end %>
 	                </li>
 	                <li>
-										<%= link_to 'Kontakti', root_path, class:'nav-item' %>
+										<%= link_to 'Kontakti', root_path, class:'nav-item', rel: 'nav-4' %>
 	                </li>
 	            </ul>
 	        </nav>

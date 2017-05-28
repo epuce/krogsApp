@@ -16,8 +16,10 @@
 
 $(function() {
     var $window = $(window),
+        $body = $('body'),
         $viewportMeta = $('meta[name="viewport"]'),
         $header = $('.header'),
+        $navItem = $('.nav-item'),
         $headerLogo = $header.find('.logo'),
         $menuWrapepr = $('.menu'),
         $page = $menuWrapepr.find('.page'),
@@ -29,9 +31,18 @@ $(function() {
         nextPage,
         height = 0;
 
-    if ( navigator.userAgent.match(/(iPhone|android)/)) {
+    if ( navigator.userAgent.match(/(iPhone|Android)/)) {
         $viewportMeta.attr('content', 'width=640, user-scalable=no');
     }
+
+    $navItem.on('click', function(e) {
+        // If () {
+            e.preventDefault();
+            var toScroll = $('.'+$(this).attr('rel')).offset().top;
+
+            $body.scrollTop(toScroll - 290);
+        // }
+    });
 
     function headerShadow(scrolled){
         if (scrolled >= 1) {
@@ -59,14 +70,21 @@ $(function() {
         }
     });
 
-    if ($window.width() < 768) {
-        $picture.each(function (i) {
-            var $this = $(this);
+
+    $picture.each(function (i) {
+        var $this = $(this);
+
+        if ($window.width() < 769) {
             if (i > 2) {
                 $this.hide();
             }
-        });
-    }
+        } else {
+            if (i > 5) {
+                $this.hide();
+            }
+        }
+    });
+
 
     $showMore.on('click', function () {
         $picture.each(function (i) {
