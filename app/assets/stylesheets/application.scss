@@ -77,30 +77,35 @@ a {
         width: 100%;
       }
     }
+  }
 
-    .nav {
-      transition: padding 0.5s;
+  .nav {
+    transition: padding 0.5s;
 
-      ul {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-      }
+    ul {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
 
-      li {
-        list-style: none;
-      }
+    li {
+      list-style: none;
+    }
 
-      .nav-item{
-        color: #000;
-        text-decoration: none;
-        font-weight: 700;
+    .nav-item{
+      display: block;
+      color: #000;
+      text-decoration: none;
+      font-weight: 700;
+
+      &:hover {
+        cursor: pointer;
       }
     }
   }
 
   &.header-shadow {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.8);
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);
 
     .container {
@@ -162,6 +167,34 @@ a {
           justify-content: space-around;
         }
 
+        .group {
+          position: absolute;
+          top: calc(100% + 32px);
+          left: -25px;
+          width: 230px;
+          display: none;
+          background: rgba(255, 255, 255, 0.8);
+
+          &.active {
+            &:before {
+              position: absolute;
+              top: -7px;
+              left: calc(50% - 7px);
+              z-index: 1000;
+              border-left: 7px solid transparent;
+              border-right: 7px solid transparent;
+              border-bottom: 7px solid #222222;
+              content: " ";
+            }
+          }
+
+          .nav-item {
+            padding: 0 10px;
+            display: block;
+            border-top: 1px rgba(0, 0, 0, 0.8) solid;
+          }
+        }
+
         li {
           display: inline-block;
         }
@@ -203,6 +236,34 @@ a {
         ul {
           display: flex;
           justify-content: space-around;
+        }
+
+        .group {
+          position: absolute;
+          top: calc(100% + 35px);
+          left: -25px;
+          width: 170px;
+          display: none;
+          background: rgba(255, 255, 255, 0.8);
+
+          &.active {
+            &:before {
+              position: absolute;
+              top: -7px;
+              left: calc(50% - 7px);
+              z-index: 1000;
+              border-left: 7px solid transparent;
+              border-right: 7px solid transparent;
+              border-bottom: 7px solid #222222;
+              content: " ";
+            }
+          }
+
+          .nav-item {
+            padding: 0 10px;
+            display: block;
+            border-top: 1px rgba(0, 0, 0, 0.8) solid;
+          }
         }
 
         .li {
@@ -252,6 +313,8 @@ a {
     }
 
     .group {
+      display: none;
+
       .nav-item {
         font-size: 38px;
         color: #2b303d;

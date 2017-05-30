@@ -12,7 +12,7 @@
 
 <div class="menu wrapper">
   <% @groups.each do |group| %>
-      <div class="page">
+      <div class="page page-<%=group.id%>">
         <% if group.isActive %>
             <div class="group-title">
               <%= group.text %>

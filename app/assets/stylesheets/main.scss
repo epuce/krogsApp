@@ -26,7 +26,7 @@
 }
 
 .section-header {
-  margin: 20px 0;
+  padding: 20px 0;
 }
 
 .menu {
@@ -122,7 +122,7 @@
   }
 
   .show-more, .hide-more {
-    display: none;
+    cursor: pointer;
   }
 }
 
@@ -298,13 +298,7 @@
       }
     }
 
-    .show-more {
-      display: block;
-      font-size: 28px;
-    }
-
-    .hide-more {
-      display: none;
+    .show-more, .hide-more {
       font-size: 28px;
     }
   }
