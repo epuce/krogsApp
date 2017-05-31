@@ -51,7 +51,7 @@
 
 <div class="gallery wrapper">
   <% @pictures.each do |picture| %>
-      <%= link_to image_tag(picture.url, alt: picture.url),  "assets/gallery/#{picture.url}", class: 'picture'%>
+      <%= link_to image_tag(picture.url, alt: picture.name.url),  "assets/gallery/#{picture.name.url}", class: 'picture'%>
   <% end %>
   <div class="show-more">Parādīt vēl</div>
   <div class="hide-more">Paslēpt</div>
