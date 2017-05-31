@@ -18,4 +18,8 @@ class SessionsController < ApplicationController
       session[:user_id] = nil
       redirect_to root_url, notice: "Izrakstījies"
     end
+
+    def index
+      @groups = Group.all
+    end
 end

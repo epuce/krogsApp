@@ -11,6 +11,14 @@
 <h1 class="section-header nav-1">Ēdienkarte</h1>
 
 <div class="menu wrapper">
+  <div class="page">
+    <ul class="group">
+      <% @groups.each do |group| %>
+          <li class="nav-item js-nav-item js-page" rel="page-<%=group.id%>"><%= group.text %></li>
+      <% end %>
+    </ul>
+  </div>
+
   <% @groups.each do |group| %>
       <div class="page page-<%=group.id%>">
         <% if group.isActive %>
@@ -43,7 +51,7 @@
 
 <div class="gallery wrapper">
   <% @pictures.each do |picture| %>
-      <%= link_to image_tag(picture.name, alt: picture.name_file_name),  "assets/gallery/#{picture.name_file_name}", class: 'picture'%>
+      <%= link_to image_tag(picture.url, alt: picture.name_file_name),  "assets/gallery/#{picture.url}", class: 'picture'%>
   <% end %>
   <div class="show-more">Parādīt vēl</div>
   <div class="hide-more">Paslēpt</div>
