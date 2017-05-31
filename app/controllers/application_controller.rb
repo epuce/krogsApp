@@ -5,10 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :authorize
 
   def index
-    @maintexts = Maintext.all
     @groups = Group.all
-    @foods = Food.all
-    @pictures = Picture.all
   end
 
   def authorize
