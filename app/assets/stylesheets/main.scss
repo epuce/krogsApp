@@ -51,10 +51,6 @@
       float: right;
     }
 
-    .group-title {
-      margin-bottom: 30px;
-    }
-
     .name, .description {
       width: 85%;
       display: inline-block;
@@ -83,6 +79,7 @@
       font-size: 32px;
       bottom: -25px;
       width: 100%;
+      cursor: pointer;
     }
   }
 }
