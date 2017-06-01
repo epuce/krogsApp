@@ -25,12 +25,13 @@ $(function() {
         $group = $header.find('.group'),
         $menuWrapepr = $('.menu'),
         $page = $menuWrapepr.find('.page'),
+        $allgroups = $page.find('.js-all-groups'),
         $gallertWrapepr = $('.gallery'),
         $picture = $gallertWrapepr.find('.picture'),
         $showMore = $gallertWrapepr.find('.show-more'),
         $hideMore = $gallertWrapepr.find('.hide-more'),
         $allPictures = $('.picture'),
-        $visiblePictures = $('.picture:visible');
+        $visiblePictures = $('.picture:visible'),
         $headerHeight = 0;
 
     if ( navigator.userAgent.match(/(iPhone|Android)/)) {
@@ -183,6 +184,13 @@ $(function() {
 
         $showMore.fadeIn();
         $hideMore.hide();
+    });
+
+    $allgroups.on('click', function () {
+        $('.page-0')
+            .fadeIn(500)
+            .siblings()
+            .hide();
     });
 
     $gallertWrapepr.find('a').simpleLightbox();

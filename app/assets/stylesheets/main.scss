@@ -33,6 +33,7 @@
   padding: 40px 40px 40px 50px;
 
   .page {
+    position: relative;
     display: none;
 
     &:first-child {
@@ -64,6 +65,7 @@
     .price {
       width: 15%;
       display: inline-block;
+      float: right;
       text-align: center;
     }
 
@@ -74,6 +76,13 @@
         list-style: none;
         cursor: pointer;
       }
+    }
+
+    .all-groups {
+      position: absolute;
+      font-size: 32px;
+      bottom: -25px;
+      width: 100%;
     }
   }
 }
@@ -303,6 +312,13 @@
       .group-title {
         margin-bottom: 30px;
         font-size: 32px;
+      }
+
+      .group {
+        .nav-item {
+          font-size: 38px;
+          color: #2b303d;
+        }
       }
     }
   }

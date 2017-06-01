@@ -11,7 +11,7 @@
 <h1 class="section-header nav-1">Ēdienkarte</h1>
 
 <div class="menu wrapper">
-  <div class="page">
+  <div class="page page-0">
     <ul class="group">
       <% @groups.order(:order).each do |group| %>
           <% if group.isActive %>
@@ -27,6 +27,7 @@
             <div class="group-title">
               <%= group.text %>
             </div>
+            <div class="price">EUR</div>
             <% @foods.where(group_id: group.id).order(:order).find_each do |food| %>
                 <% if food.isActive %>
                     <div class="food">
@@ -43,6 +44,8 @@
                 <% end %>
             <% end %>
         <% end %>
+
+        <div class="all-groups js-all-groups">Visas grupas</div>
       </div>
   <% end %>
 </div>

@@ -38,7 +38,9 @@
 
 										<ul class="group">
 											<% @groups.each do |group| %>
-													<li class="nav-item js-nav-item js-page" rel="page-<%=group.id%>"><%= group.text %></li>
+													<% if group.isActive %>
+															<li class="nav-item js-nav-item js-page" rel="page-<%=group.id%>"><%= group.text %></li>
+													<% end %>
 											<% end %>
 										</ul>
 
