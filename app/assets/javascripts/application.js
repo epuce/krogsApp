@@ -137,7 +137,8 @@ $(function() {
             var $this = $(this);
 
             if ($window.width() > 1024) {
-                if (i < $visiblePictures.length + 3) {
+                console.log(i < $visiblePictures.length%3 === 0, i < $visiblePictures.length+ 3)
+                if (i < $visiblePictures.length%3 === 0 && i < $visiblePictures.length+ 3) {
                     $this.slideDown(700);
                 }
             } else if ($window.width() > 768) {

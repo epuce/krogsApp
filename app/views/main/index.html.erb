@@ -13,30 +13,34 @@
 <div class="menu wrapper">
   <div class="page">
     <ul class="group">
-      <% @groups.each do |group| %>
-          <li class="nav-item js-nav-item js-page" rel="page-<%=group.id%>"><%= group.text %></li>
+      <% @groups.order(:order).each do |group| %>
+          <% if group.isActive %>
+              <li class="nav-item js-nav-item js-page" rel="page-<%=group.id%>"><%= group.text %></li>
+          <% end %>
       <% end %>
     </ul>
   </div>
 
-  <% @groups.each do |group| %>
+  <% @groups.order(:order).each do |group| %>
       <div class="page page-<%=group.id%>">
         <% if group.isActive %>
             <div class="group-title">
               <%= group.text %>
             </div>
-            <% @foods.where(group_id: group.id).find_each do |food| %>
-                <div class="food">
-                  <div class="name">
-                    <%= food.name %>
-                  </div>
-                  <div class="price">
-                    <%= food.price %>
-                  </div>
-                  <div class="description">
-                    <%= food.description %>
-                  </div>
-                </div>
+            <% @foods.where(group_id: group.id).order(:order).find_each do |food| %>
+                <% if food.isActive %>
+                    <div class="food">
+                      <div class="name">
+                        <%= food.name %>
+                      </div>
+                      <div class="price">
+                        <%= food.price %>
+                      </div>
+                      <div class="description">
+                        <%= food.description %>
+                      </div>
+                    </div>
+                <% end %>
             <% end %>
         <% end %>
       </div>
@@ -50,8 +54,10 @@
 <h1 class="section-header nav-3">Galerija</h1>
 
 <div class="gallery wrapper">
-  <% @pictures.each do |picture| %>
-      <%= link_to image_tag(picture.name.url, alt: picture.name.url),  "#{picture.name.url}", class: 'picture'%>
+  <% @pictures.order(:order).each do |picture| %>
+      <% if picture.isActive %>
+          <%= link_to image_tag(picture.name.url, alt: picture.name.url),  "#{picture.name.url}", class: 'picture'%>
+      <% end %>
   <% end %>
   <div class="show-more">Parādīt vēl</div>
   <div class="hide-more">Paslēpt</div>
@@ -61,5 +67,5 @@
 
 <%= render template: 'contacts/index' %>
 
-
+<div class="author">Šlageris© 2017 made by <a href="https://www.facebook.com/puce.ed">Edmunds Pūce</a></div>
 
