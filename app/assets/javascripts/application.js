@@ -39,31 +39,32 @@ $(function() {
     }
 
     $navItem.on('click', function(e) {
-        // If () {
-        e.preventDefault();
-        var $this = $(this),
-            $toScroll = $('.'+$this.attr('rel')),
-            $headerHeight = 0,
-            scrollVal = $toScroll.offset().top;
+        // if ((window.location.href).indexOf('/') === -1) {
+            e.preventDefault();
+            var $this = $(this),
+                $toScroll = $('.' + $this.attr('rel')),
+                $headerHeight = 0,
+                scrollVal = $toScroll.offset().top;
 
-        if ($window.width()<769) {
-            $headerHeight = 280;
-        } else {
-            $headerHeight = $('.header').height();
-        }
+            if ($window.width() < 769) {
+                $headerHeight = 280;
+            } else {
+                $headerHeight = $('.header').height();
+            }
 
-        if ($this.hasClass('js-page')) {
-            var menuScrollVal = $('.nav-1').offset().top;
+            if ($this.hasClass('js-page')) {
+                var menuScrollVal = $('.nav-1').offset().top;
 
-            $toScroll
-                .fadeIn(500)
-                .siblings()
-                .hide();
+                $toScroll
+                    .fadeIn(500)
+                    .siblings()
+                    .hide();
 
-            $body.animate({scrollTop: menuScrollVal - $headerHeight}, 1000);
-        } else {
-            $body.animate({scrollTop: scrollVal - $headerHeight}, 1000);
-        }
+                $body.animate({scrollTop: menuScrollVal - $headerHeight}, 1000);
+            } else {
+                $body.animate({scrollTop: scrollVal - $headerHeight}, 1000);
+            }
+        // }
     });
 
     $headerOpenDropdown.on('click', function(){
