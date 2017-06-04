@@ -34,9 +34,21 @@ $(function() {
         $visiblePictures,
         $headerHeight = 0;
 
-    if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768) {
-        $viewportMeta.attr('content', 'width=640, user-scalable=no');
+
+    function mobileMetatag() {
+        if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 && $window.width() < $window.height()) {
+            $viewportMeta.attr('content', 'width=640, user-scalable=no');
+        } else if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 && $window.width() > $window.height()) {
+            $viewportMeta.attr('content', 'width=768, user-scalable=no');
+        }
     }
+
+    mobileMetatag();
+
+    $(window).on('orientationchange', function () {
+        $viewportMeta.attr('content', 'width=device-width, initial-scale=1, maximum-scale=1');
+        mobileMetatag();
+    });
 
     $navItem.on('click', function(e) {
         // if ((window.location.href).indexOf('/') === -1) {

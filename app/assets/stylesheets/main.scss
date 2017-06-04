@@ -230,7 +230,7 @@
   }
 }
 
-@media (max-width: $tablet-max) and (min-width: $tablet-min) {
+@media (max-width: $tablet-max) and (min-width: $tablet-min), (max-width: $mobile-max) and (orientation: landscape) {
   .wrapper {
     max-width: 768px;
   }
@@ -287,7 +287,7 @@
   }
 }
 
-@media (max-width: $mobile-max) {
+@media (max-width: $mobile-max) and (orientation: portrait) {
   .section-header {
     font-size: 38px;
   }

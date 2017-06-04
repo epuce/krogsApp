@@ -222,7 +222,7 @@ a {
   }
 }
 
-@media (max-width: $tablet-max) and (min-width: $tablet-min) {
+@media (max-width: $tablet-max) and (min-width: $tablet-min), (max-width: $mobile-max) and (orientation: landscape) {
   .admin {
     max-width: 768px;
   }
@@ -299,7 +299,7 @@ a {
   }
 }
 
-@media (max-width: $mobile-max) {
+@media (max-width: $mobile-max) and (orientation: portrait) {
   html, body {
     width: 100%;
     min-width: 640px;
