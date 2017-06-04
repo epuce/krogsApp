@@ -31,7 +31,7 @@ $(function() {
         $showMore = $gallertWrapepr.find('.show-more'),
         $hideMore = $gallertWrapepr.find('.hide-more'),
         $allPictures = $('.picture'),
-        $visiblePictures = $('.picture:visible'),
+        $visiblePictures,
         $headerHeight = 0;
 
     if ( navigator.userAgent.match(/(iPhone|Android)/)) {
@@ -67,20 +67,22 @@ $(function() {
         // }
     });
 
-    $headerOpenDropdown.on('click', function(){
+    $headerOpenDropdown.on('click', function(e){
         var scrollTop = $body.scrollTop();
 
-        if ($group.is(':visible')) {
-            $group.removeClass('active').slideUp(function () {
-                if (scrollTop < 1) {
-                    $header.removeClass("header-shadow");
-                }
-            });
-        } else {
-            $group.addClass('active').slideDown();
+        if (!$(e.target).hasClass('nav-admin-item')) {
+            if ($group.is(':visible')) {
+                $group.removeClass('active').slideUp(function () {
+                    if (scrollTop < 1) {
+                        $header.removeClass("header-shadow");
+                    }
+                });
+            } else {
+                $group.addClass('active').slideDown();
 
-            if (scrollTop < 1) {
-                $header.addClass("header-shadow");
+                if (scrollTop < 1) {
+                    $header.addClass("header-shadow");
+                }
             }
         }
     });
@@ -120,6 +122,8 @@ $(function() {
     $picture.each(function (i) {
         var $this = $(this);
 
+            $visiblePictures = $('.picture:visible');
+
         if ($window.width() < 769) {
             if (i > 2) {
                 $this.hide();
@@ -129,10 +133,15 @@ $(function() {
                 $this.hide();
             }
         }
+
+        if (i === $visiblePictures.length-1) {
+            showHidePicture()
+        }
     });
 
     $showMore.on('click', function () {
-            var $allPictures = $('.picture'),
+            var $allPictures = $('.picture');
+
                 $visiblePictures = $('.picture:visible');
 
         $picture.each(function (i) {
@@ -160,13 +169,22 @@ $(function() {
         });
     });
 
-    if ($allPictures.length <= $visiblePictures.length + 1) {
-        $showMore.show();
-        $hideMore.hide();
-    } else {
-        $showMore.show();
-        $hideMore.hide();
+    function showHidePicture() {
+        $visiblePictures = $('.picture:visible');
+
+        if ($allPictures.length === $visiblePictures.length) {
+            $showMore.hide();
+            $hideMore.hide();
+        } else if ($allPictures.length <= $visiblePictures.length + 1) {
+            $showMore.show();
+            $hideMore.hide();
+        } else {
+            $showMore.show();
+            $hideMore.hide();
+        }
     }
+
+
 
     $hideMore.on('click', function () {
         $picture.each(function (i) {
