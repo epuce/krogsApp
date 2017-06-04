@@ -150,6 +150,8 @@ $(function() {
             }
         }
 
+        console.log(i === $visiblePictures.length-1)
+        
         if (i === $visiblePictures.length-1) {
             showHidePicture()
         }

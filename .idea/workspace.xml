@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="270cfe90-9e0e-4d03-b6c2-ae995fd9518c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,8 +28,8 @@
       <file leaf-file-name="application.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1633">
-              <caret line="195" column="25" lean-forward="false" selection-start-line="195" selection-start-column="25" selection-end-line="195" selection-end-column="25" />
+            <state relative-caret-position="188">
+              <caret line="153" column="8" lean-forward="false" selection-start-line="153" selection-start-column="8" selection-end-line="153" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -37,8 +38,8 @@
       <file leaf-file-name="main.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="316" column="25" lean-forward="false" selection-start-line="316" selection-start-column="25" selection-end-line="316" selection-end-column="25" />
+            <state relative-caret-position="385">
+              <caret line="368" column="20" lean-forward="false" selection-start-line="368" selection-start-column="20" selection-end-line="368" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -48,7 +49,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>legend</find>
       <find>legen</find>
       <find>imagess</find>
       <find>table {</find>
@@ -77,6 +77,7 @@
       <find>logotoggle</find>
       <find>header</find>
       <find>each</find>
+      <find>show</find>
       <find>showHidePicture</find>
     </findStrings>
     <replaceStrings>
@@ -147,8 +148,8 @@
         <option value="$PROJECT_DIR$/log/development.log" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/simple-lightbox.js" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/simplelightbox.css.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/main.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/main.scss" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
       </list>
     </option>
@@ -844,12 +845,12 @@
       <workItem from="1495119835323" duration="11507000" />
       <workItem from="1495485450952" duration="584000" />
       <workItem from="1495728449248" duration="2921000" />
-      <workItem from="1496083128105" duration="46767000" />
+      <workItem from="1496083128105" duration="47457000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185431000" />
+    <option name="totallyTimeSpent" value="186121000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
@@ -1305,14 +1306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="316" column="25" lean-forward="false" selection-start-line="316" selection-start-column="25" selection-end-line="316" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="385">
@@ -1321,10 +1314,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="368" column="20" lean-forward="false" selection-start-line="368" selection-start-column="20" selection-end-line="368" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1633">
-          <caret line="195" column="25" lean-forward="false" selection-start-line="195" selection-start-column="25" selection-end-line="195" selection-end-column="25" />
+        <state relative-caret-position="188">
+          <caret line="153" column="8" lean-forward="false" selection-start-line="153" selection-start-column="8" selection-end-line="153" selection-end-column="8" />
           <folding />
         </state>
       </provider>
