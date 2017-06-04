@@ -36,7 +36,6 @@ $(function() {
 
 
     function mobileMetatag() {
-
         if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 ) {
             if ($window.width() < $window.height()) {
                 $viewportMeta.attr('content', 'width=640, user-scalable=no');
@@ -48,7 +47,7 @@ $(function() {
 
     mobileMetatag();
 
-    $(window).on('orientationchange', function () {
+    $window.on('orientationchange', function () {
         $viewportMeta.attr('content', 'width=device-width, initial-scale=1, maximum-scale=1');
         mobileMetatag();
     });
@@ -188,6 +187,8 @@ $(function() {
     function showHidePicture() {
         $visiblePictures = $('.picture:visible');
 
+        console.log($allPictures.length,$visiblePictures.length )
+
         if ($allPictures.length === $visiblePictures.length) {
             $showMore.hide();
             $hideMore.hide();
@@ -199,8 +200,6 @@ $(function() {
             $hideMore.hide();
         }
     }
-
-
 
     $hideMore.on('click', function () {
         $picture.each(function (i) {
