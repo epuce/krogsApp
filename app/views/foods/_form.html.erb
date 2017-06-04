@@ -28,7 +28,11 @@
 
     <div class="input-block order">
       <%= f.label :order, 'Grupēšanas secība?', class: 'label'%><br>
-      <%= f.number_field :order, value: Food.all.length + 1, min: 1 %>
+      <% if @food.order %>
+          <%= f.number_field :order, min: 1 %>
+      <% else %>
+          <%= f.number_field :order, value: Food.all.length + 1, min: 1 %>
+      <% end %>
     </div>
 
     <div class="input-block group">

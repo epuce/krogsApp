@@ -17,7 +17,11 @@
 
     <div class="order">
       <%= f.label :order, 'Grupēšanas secība?', class: 'label'%><br>
-      <%= f.number_field :order, min: 1, value: Maintext.all.length + 1 %>
+      <% if @maintext.order %>
+          <%= f.number_field :order, min: 1 %>
+      <% else %>
+          <%= f.number_field :order, min: 1, value: Maintext.all.length + 1 %>
+      <% end %>
     </div>
 
     <div class="is-active">

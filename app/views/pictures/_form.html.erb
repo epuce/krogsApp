@@ -18,7 +18,11 @@
 
     <div class="order">
       <%= f.label :order, 'Bildes secība?', class: 'label'%><br>
-      <%= f.number_field :order, min: 1, class: 'input', value: Picture.all.length + 1 %>
+      <% if @picture.order %>
+          <%= f.number_field :order, min: 1 %>
+      <% else %>
+          <%= f.number_field :order, min: 1, class: 'input', value: Picture.all.length + 1 %>
+      <% end %>
     </div>
 
     <div class="is-active">
