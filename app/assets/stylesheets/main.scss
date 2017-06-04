@@ -149,6 +149,7 @@
   .left {
     .tel {
       color: darkred;
+      font-weight: 300;
     }
   }
 
@@ -175,10 +176,6 @@
   .gallery {
     .picture {
       width: 32%;
-
-      img {
-        width: 100%;
-      }
     }
   }
 
@@ -199,11 +196,6 @@
 
   .left {
     text-align: left;
-
-    .tel {
-      color: darkred;
-      font-weight: 300;
-    }
 
     .address{
       font-weight: 300;
@@ -254,11 +246,6 @@
     padding-right: 20px ;
     font-size: 16px;
     text-align: left;
-
-    .tel {
-      color: darkred;
-      font-weight: 300;
-    }
 
     .address{
       font-weight: 300;
@@ -343,14 +330,14 @@
       .right-heading {
         margin-bottom: 15px;
       }
-
-      .tel {
-        font-size: 28px
-      }
     }
 
     .left {
       margin-bottom: 15px;
+
+      .tel {
+        font-size: 28px
+      }
     }
 
     .work-time {

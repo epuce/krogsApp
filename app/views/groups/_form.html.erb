@@ -18,7 +18,7 @@
 
     <div class="order">
       <%= f.label :order, 'Grupēšanas secība?', class: 'label'%><br>
-      <%= f.number_field :order, min: 1, class: 'input' %>
+      <%= f.number_field :order, min: 1, value: Group.all.length + 1, class: 'input' %>
     </div>
 
     <div class="is-active">

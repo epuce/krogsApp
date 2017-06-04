@@ -28,14 +28,7 @@
 
     <div class="input-block order">
       <%= f.label :order, 'Grupēšanas secība?', class: 'label'%><br>
-      <%= f.select :order do %>
-          <%= content_tag(:option, @food.order, value: @food.order)%>
-          <% for i in 1..Food.all.length+5 %>
-              <% if !Food.where(order: i).exists? %>
-                  <%= content_tag(:option, i , value: i)%>
-              <% end %>
-          <% end %>
-      <% end %>
+      <%= f.number_field :order, value: Food.all.length + 1, min: 1 %>
     </div>
 
     <div class="input-block group">

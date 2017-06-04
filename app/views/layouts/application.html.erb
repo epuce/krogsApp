@@ -65,12 +65,14 @@
 	            </ul>
 	        </nav>
 	    </div>
+			<div class="admin-cred">
+				<% if User.find_by(id: session[:user_id]) %>
+						Jūs esiet pierakstījies kā: <%= User.find(session[:user_id]).name %>
+						<%= button_to 'Izrakstīties', logout_path, :method => :delete %>
+				<% end %>
+			</div>
 	</header>
     <div class="main-container">
-			<% if User.find_by(id: session[:user_id]) %>
-					<%= button_to 'Logout', logout_path, :method => :delete %>
-			<% end %>
-
         <%= yield %>
     </div>
 </body>

@@ -17,14 +17,7 @@
 
     <div class="order">
       <%= f.label :order, 'Grupēšanas secība?', class: 'label'%><br>
-      <%= f.select :order do %>
-          <%= content_tag(:option, @maintext.order, value: @maintext.order)%>
-          <% for i in 1..Maintext.all.length+5 %>
-              <% if !Maintext.where(order: i).exists? %>
-                <%= content_tag(:option, i , value: i)%>
-              <% end %>
-          <% end %>
-      <% end %>
+      <%= f.number_field :order, min: 1, value: Maintext.all.length + 1 %>
     </div>
 
     <div class="is-active">
