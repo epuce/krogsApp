@@ -37,8 +37,8 @@
       <file leaf-file-name="simplelightbox.css.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/simplelightbox.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="247" column="19" lean-forward="true" selection-start-line="247" selection-start-column="19" selection-end-line="247" selection-end-column="19" />
+            <state relative-caret-position="266">
+              <caret line="248" column="8" lean-forward="false" selection-start-line="248" selection-start-column="8" selection-end-line="248" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -822,12 +822,12 @@
       <workItem from="1495119835323" duration="11507000" />
       <workItem from="1495485450952" duration="584000" />
       <workItem from="1495728449248" duration="2921000" />
-      <workItem from="1496083128105" duration="41915000" />
+      <workItem from="1496083128105" duration="42023000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180579000" />
+    <option name="totallyTimeSpent" value="180687000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
@@ -1301,8 +1301,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/simplelightbox.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="247" column="19" lean-forward="true" selection-start-line="247" selection-start-column="19" selection-end-line="247" selection-end-column="19" />
+        <state relative-caret-position="266">
+          <caret line="248" column="8" lean-forward="false" selection-start-line="248" selection-start-column="8" selection-end-line="248" selection-end-column="8" />
           <folding />
         </state>
       </provider>

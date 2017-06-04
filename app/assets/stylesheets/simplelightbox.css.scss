@@ -244,7 +244,9 @@ body.hidden-scroll {
     .sl-navigation {
       button {
         top: 70%;
-
+        width: 100px;
+        height: 100px;
+        
         &.sl-prev {
           left: 30%;
         }
