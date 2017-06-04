@@ -94,12 +94,12 @@ body.hidden-scroll {
       color: $sl-navigation-color;
       &.sl-next {
         right: 5px;
-        font-size: $sl-arrow-fontsize-small;
+        background-image: url('arrow-right.png');
       }
 
       &.sl-prev {
         left: 5px;
-        font-size: $sl-arrow-fontsize-small;
+        background-image: url('arrow-left.png');
       }
       @media (min-width: $sl-breakpoint-medium) {
         width: 44px;

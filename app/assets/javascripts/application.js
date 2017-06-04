@@ -211,6 +211,20 @@ $(function() {
             .fadeIn(500)
             .siblings()
             .hide();
+
+        var $this = $(this),
+            $toScroll = $('.' + $this.attr('rel')),
+            $headerHeight = 0,
+            menuScrollVal = $('.nav-1').offset().top;
+
+
+        if ($window.width() < 768) {
+            $headerHeight = 280;
+        } else {
+            $headerHeight = $('.header').height();
+        }
+
+        $body.animate({scrollTop: menuScrollVal - $headerHeight}, 1000);
     });
 
     $gallertWrapepr.find('a').simpleLightbox();

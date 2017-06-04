@@ -128,7 +128,7 @@ $.fn.simpleLightbox = function( options )
 		overlay = $('<div>').addClass('sl-overlay'),
 		closeBtn = $('<button>').addClass('sl-close').html(options.closeText),
 		spinner = $('<div>').addClass('sl-spinner').html('<div></div>'),
-		nav = $('<div>').addClass('sl-navigation').html('<button class="sl-prev">'+options.navText[0]+'</button><button class="sl-next">'+options.navText[1]+'</button>'),
+		nav = $('<div>').addClass('sl-navigation').html('<button class="sl-prev"></button><button class="sl-next"></button>'),
 		counter = $('<div>').addClass('sl-counter').html('<span class="sl-current"></span>/<span class="sl-total"></span>'),
 		animating = false,
 		index = 0,
