@@ -36,10 +36,13 @@ $(function() {
 
 
     function mobileMetatag() {
-        if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 && $window.width() < $window.height()) {
-            $viewportMeta.attr('content', 'width=640, user-scalable=no');
-        } else if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 && $window.width() > $window.height()) {
-            $viewportMeta.attr('content', 'width=768, user-scalable=no');
+
+        if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 ) {
+            if ($window.width() < $window.height()) {
+                $viewportMeta.attr('content', 'width=640, user-scalable=no');
+            } else if ($window.width() > $window.height()) {
+                $viewportMeta.attr('content', 'width=767, user-scalable=no');
+            }
         }
     }
 
@@ -111,11 +114,11 @@ $(function() {
     }
 
     function logoToggle(scrolled){
-        if (scrolled >= 1 && $window.width() < 768) {
-            $headerLogo.slideUp();
-        } else {
-            $headerLogo.slideDown()
-        }
+        // if (scrolled >= 1 && $window.width() < 768) {
+        //     $headerLogo.slideUp();
+        // } else {
+        //     $headerLogo.slideDown()
+        // }
     }
 
     $window.on('scroll', function(){
