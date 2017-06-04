@@ -220,16 +220,23 @@ $.fn.simpleLightbox = function( options )
 				var imageWidth	 = tmpImage.width,
 					imageHeight	 = tmpImage.height;
 
-				if( imageWidth > windowWidth || imageHeight > windowHeight ){
+				if( imageWidth > windowWidth || imageHeight > windowHeight ) {
 					var ratio	 = imageWidth / imageHeight > windowWidth / windowHeight ? imageWidth / windowWidth : imageHeight / windowHeight;
 					imageWidth	/= ratio;
 					imageHeight	/= ratio;
 				}
 
-				$('.sl-image').css({
-					'top':    ( $( window ).height() - imageHeight ) / 2 + 'px',
-					'left':   ( $( window ).width() - imageWidth - globalScrollbarwidth)/ 2 + 'px'
-				});
+				if ($(window).width() < 768 && $(window).width() < $(window).height()) {
+                    $('.sl-image').css({
+                        'top':    ( $( window ).height() - imageHeight ) / 2 + 'px',
+                    });
+				} else {
+                    $('.sl-image').css({
+                        'top':    ( $( window ).height() - imageHeight ) / 2 + 'px',
+                        'left':   ( $( window ).width() - imageWidth - globalScrollbarwidth)/ 2 + 'px'
+                    });
+				}
+
 				spinner.hide();
 				curImg
 				.css({

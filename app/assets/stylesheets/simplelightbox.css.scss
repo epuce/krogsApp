@@ -239,14 +239,14 @@ body.hidden-scroll {
     }
 }
 
-@media (max-width: $mobile-max) {
+@media (max-width: $mobile-max) and (orientation: portrait) {
   .sl-wrapper {
     .sl-navigation {
       button {
-        top: 70%;
+        top: 77%;
         width: 100px;
         height: 100px;
-        
+
         &.sl-prev {
           left: 30%;
         }
@@ -254,6 +254,15 @@ body.hidden-scroll {
         &.sl-next {
           right: 30%;
         }
+      }
+    }
+
+    .sl-image {
+      left: 0 !important;
+
+      img {
+        width: 100% !important;
+        height: auto !important;
       }
     }
   }
