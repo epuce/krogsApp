@@ -31,9 +31,7 @@ $(function() {
         $showMore = $gallertWrapepr.find('.show-more'),
         $hideMore = $gallertWrapepr.find('.hide-more'),
         $allPictures = $('.picture'),
-        $visiblePictures,
-        $headerHeight = 0;
-
+        $visiblePictures;
 
     function mobileMetatag() {
         if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 ) {
@@ -45,15 +43,45 @@ $(function() {
         }
     }
 
-    mobileMetatag();
+    function showHidePicture() {
+        $visiblePictures = $('.picture:visible');
+
+        if ($allPictures.length === $visiblePictures.length) {
+            $showMore.hide();
+            $hideMore.hide();
+        } else if ($allPictures.length <= $visiblePictures.length + 1) {
+            $showMore.show();
+            $hideMore.hide();
+        } else {
+            $showMore.show();
+            $hideMore.hide();
+        }
+    }
+
+    function headerShadow(scrolled){
+        if (scrolled > 0) {
+            $header.addClass("header-shadow");
+        } else {
+            $header.removeClass("header-shadow");
+        }
+    }
+
+    function logoToggle(scrolled){
+        if (scrolled >= 1) {
+            $headerLogo.slideUp();
+        } else {
+            $headerLogo.slideDown()
+        }
+    }
 
     $window.on('orientationchange', function () {
         $viewportMeta.attr('content', 'width=device-width, initial-scale=1, maximum-scale=1');
         mobileMetatag();
+
+        $headerLogo.css('display','inline-block')
     });
 
     $navItem.on('click', function(e) {
-        // if ((window.location.href).indexOf('/') === -1) {
             e.preventDefault();
             var $this = $(this),
                 $toScroll = $('.' + $this.attr('rel')),
@@ -78,7 +106,6 @@ $(function() {
             } else {
                 $body.animate({scrollTop: scrollVal - $headerHeight}, 1000);
             }
-        // }
     });
 
     $headerOpenDropdown.on('click', function(e){
@@ -103,39 +130,27 @@ $(function() {
         $group.toggleClass('active')
     });
 
-
-    function headerShadow(scrolled){
-        if (scrolled > 0) {
-            $header.addClass("header-shadow");
-        } else {
-            $header.removeClass("header-shadow");
-        }
-    }
-
     $window.on('scroll', function(){
         var scrolled = $window.scrollTop();
 
         headerShadow(scrolled);
+
+        if ($window.width() < 768 && $window.width() < $window.height()) {
+            logoToggle(scrolled);
+        }
 
         if ($group.is(':visible')) {
             $group.slideUp();
         }
     });
 
-
     $picture.each(function (i) {
         var $this = $(this);
 
-            $visiblePictures = $('.picture:visible');
-
-        if ($window.width() < 768) {
-            if (i > 2) {
-                $this.hide();
-            }
-        } else {
-            if (i > 5) {
-                $this.hide();
-            }
+        if ($window.width() < 768 && i > 2) {
+            $this.hide();
+        } else if ($window.width() >= 768 && i > 5){
+            $this.hide();
         }
 
         if (i === $allPictures.length-1) {
@@ -172,21 +187,6 @@ $(function() {
         });
     });
 
-    function showHidePicture() {
-        $visiblePictures = $('.picture:visible');
-
-        if ($allPictures.length === $visiblePictures.length) {
-            $showMore.hide();
-            $hideMore.hide();
-        } else if ($allPictures.length <= $visiblePictures.length + 1) {
-            $showMore.show();
-            $hideMore.hide();
-        } else {
-            $showMore.show();
-            $hideMore.hide();
-        }
-    }
-
     $hideMore.on('click', function () {
         $picture.each(function (i) {
             var $this = $(this);
@@ -207,21 +207,18 @@ $(function() {
     });
 
     $allgroups.on('click', function () {
+        var $headerHeight = 0,
+            menuScrollVal = $('.nav-1').offset().top;
+
         $('.page-0')
             .fadeIn(500)
             .siblings()
             .hide();
 
-        var $this = $(this),
-            $toScroll = $('.' + $this.attr('rel')),
-            $headerHeight = 0,
-            menuScrollVal = $('.nav-1').offset().top;
-
-
         if ($window.width() < 768) {
             $headerHeight = 280;
         } else {
-            $headerHeight = $('.header').height();
+            $headerHeight = $header.height();
         }
 
         $body.animate({scrollTop: menuScrollVal - $headerHeight}, 1000);
@@ -229,5 +226,11 @@ $(function() {
 
     $gallertWrapepr.find('a').simpleLightbox();
 
+    if ($window.width() < 768 && $window.width() < $window.height()) {
+        logoToggle($window.scrollTop());
+    }
+
     headerShadow($window.scrollTop());
+
+    mobileMetatag();
 });
