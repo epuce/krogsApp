@@ -34,7 +34,7 @@ $(function() {
         $visiblePictures,
         $headerHeight = 0;
 
-    if ( navigator.userAgent.match(/(iPhone|Android)/)) {
+    if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.watch() < 769) {
         $viewportMeta.attr('content', 'width=640, user-scalable=no');
     }
 
@@ -149,7 +149,7 @@ $(function() {
 
             if ($window.width() > 1024) {
                 console.log(i < $visiblePictures.length%3 === 0, i < $visiblePictures.length+ 3)
-                if (i < $visiblePictures.length%3 === 0 && i < $visiblePictures.length+ 3) {
+                if (i < $visiblePictures.length+ 3) {
                     $this.slideDown(700);
                 }
             } else if ($window.width() > 768) {
