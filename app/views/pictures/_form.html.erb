@@ -1,7 +1,7 @@
 <%= form_for @picture, html: { multipart: true } do |f| %>
   <% if @picture.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this picture from being saved:</h2>
+      <h2><%= pluralize(@picture.errors.count, "error") %> neļauj saglabāt bildi:</h2>
 
       <ul>
       <% @picture.errors.full_messages.each do |message| %>
@@ -26,6 +26,6 @@
       <%= f.check_box :isActive, class: 'input', checked: true %>
     </div>
   <div class="actions">
-    <%= f.submit class: 'submit-btn' %>
+    <%= f.submit 'Saglabat', class: 'submit-btn' %>
   </div>
 <% end %>

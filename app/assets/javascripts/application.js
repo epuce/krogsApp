@@ -34,7 +34,7 @@ $(function() {
         $visiblePictures,
         $headerHeight = 0;
 
-    if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.watch() < 769) {
+    if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.watch() < 768) {
         $viewportMeta.attr('content', 'width=640, user-scalable=no');
     }
 
@@ -46,7 +46,7 @@ $(function() {
                 $headerHeight = 0,
                 scrollVal = $toScroll.offset().top;
 
-            if ($window.width() < 769) {
+            if ($window.width() < 768) {
                 $headerHeight = 280;
             } else {
                 $headerHeight = $('.header').height();
@@ -72,19 +72,21 @@ $(function() {
 
         if (!$(e.target).hasClass('nav-admin-item')) {
             if ($group.is(':visible')) {
-                $group.removeClass('active').slideUp(function () {
+                $group.slideUp(function () {
                     if (scrollTop < 1) {
                         $header.removeClass("header-shadow");
                     }
                 });
             } else {
-                $group.addClass('active').slideDown();
+                $group.slideDown();
 
                 if (scrollTop < 1) {
                     $header.addClass("header-shadow");
                 }
             }
         }
+
+        $group.toggleClass('active')
     });
 
 
@@ -97,7 +99,7 @@ $(function() {
     }
 
     function logoToggle(scrolled){
-        if (scrolled >= 1 && $window.width() < 769) {
+        if (scrolled >= 1 && $window.width() < 768) {
             $headerLogo.slideUp();
         } else {
             $headerLogo.slideDown()
@@ -124,7 +126,7 @@ $(function() {
 
             $visiblePictures = $('.picture:visible');
 
-        if ($window.width() < 769) {
+        if ($window.width() < 768) {
             if (i > 2) {
                 $this.hide();
             }
@@ -148,11 +150,10 @@ $(function() {
             var $this = $(this);
 
             if ($window.width() > 1024) {
-                console.log(i < $visiblePictures.length%3 === 0, i < $visiblePictures.length+ 3)
                 if (i < $visiblePictures.length+ 3) {
                     $this.slideDown(700);
                 }
-            } else if ($window.width() > 768) {
+            } else if ($window.width() > 767) {
                 if (i < $visiblePictures.length + 2) {
                     $this.slideDown(700);
                 }
@@ -190,7 +191,7 @@ $(function() {
         $picture.each(function (i) {
             var $this = $(this);
 
-            if ($window.width() < 769) {
+            if ($window.width() < 768) {
                 if (i > 2) {
                     $this.slideUp(700);
                 }
