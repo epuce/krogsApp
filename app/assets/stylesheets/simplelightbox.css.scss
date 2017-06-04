@@ -1,5 +1,7 @@
 // You can customize Simplelightbox with the following variables:
 
+@import "variables";
+
 $sl-font-family: "Comic Sans MS", cursive, sans-serif;
 $sl-overlay-background: #fff;
 $sl-navigation-color: #000;
@@ -13,6 +15,7 @@ $sl-close-fontsize: 3rem;
 body.hidden-scroll {
   overflow: hidden;
 }
+
 .sl-overlay {
   position: fixed;
   left: 0;
@@ -78,6 +81,9 @@ body.hidden-scroll {
       z-index: 1015;
       font-family: $sl-font-family;
       color: $sl-navigation-color;
+      background-size: 100%;
+      background-repeat: no-repeat;
+
       &.sl-next {
         right: 5px;
         background-image: url('arrow-right.png');
@@ -231,4 +237,22 @@ body.hidden-scroll {
       transform: scale(1.2);
       opacity: 0;
     }
+}
+
+@media (max-width: $mobile-max) {
+  .sl-wrapper {
+    .sl-navigation {
+      button {
+        top: 70%;
+
+        &.sl-prev {
+          left: 30%;
+        }
+
+        &.sl-next {
+          right: 30%;
+        }
+      }
+    }
+  }
 }

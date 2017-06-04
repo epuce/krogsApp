@@ -17,8 +17,8 @@
       <file leaf-file-name="application.scss" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state relative-caret-position="300">
+              <caret line="301" column="16" lean-forward="true" selection-start-line="301" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -37,8 +37,8 @@
       <file leaf-file-name="simplelightbox.css.scss" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/simplelightbox.css.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="249">
+              <caret line="247" column="19" lean-forward="true" selection-start-line="247" selection-start-column="19" selection-end-line="247" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -48,7 +48,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lū</find>
       <find>l</find>
       <find>lene</find>
       <find>len</find>
@@ -70,7 +69,6 @@
       <find>$sl-arrow-fontsize-small</find>
       <find>$sl-arrow-fontsize-medium</find>
       <find>$sl-arrow-fontsize-large</find>
-      <find>header</find>
       <find>$sl-breakpoint-large</find>
       <find>$sl-breakpoint-medium</find>
       <find>$sl-img-border-small</find>
@@ -78,6 +76,8 @@
       <find>$sl-img-border-large</find>
       <find>$sl-iframe-border-medium</find>
       <find>$sl-iframe-border-large</find>
+      <find>header</find>
+      <find>button</find>
     </findStrings>
     <replaceStrings>
       <replace>main</replace>
@@ -822,12 +822,12 @@
       <workItem from="1495119835323" duration="11507000" />
       <workItem from="1495485450952" duration="584000" />
       <workItem from="1495728449248" duration="2921000" />
-      <workItem from="1496083128105" duration="41488000" />
+      <workItem from="1496083128105" duration="41915000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180152000" />
+    <option name="totallyTimeSpent" value="180579000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="728" extended-state="0" />
@@ -1283,14 +1283,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="52" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1299,10 +1291,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="301" column="16" lean-forward="true" selection-start-line="301" selection-start-column="0" selection-end-line="302" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/simplelightbox.css.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="249">
+          <caret line="247" column="19" lean-forward="true" selection-start-line="247" selection-start-column="19" selection-end-line="247" selection-end-column="19" />
           <folding />
         </state>
       </provider>
