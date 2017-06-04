@@ -34,7 +34,7 @@ $(function() {
         $visiblePictures,
         $headerHeight = 0;
 
-    if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.watch() < 768) {
+    if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768) {
         $viewportMeta.attr('content', 'width=640, user-scalable=no');
     }
 
