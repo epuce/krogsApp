@@ -1,6 +1,6 @@
 // You can customize Simplelightbox with the following variables:
 
-$sl-font-family: Arial, Baskerville, monospace;
+$sl-font-family: "Comic Sans MS", cursive, sans-serif;
 $sl-overlay-background: #fff;
 $sl-navigation-color: #000;
 $sl-caption-color: #fff;
@@ -8,20 +8,6 @@ $sl-caption-background: #000;
 
 $sl-counter-fontsize: 1rem;
 $sl-close-fontsize: 3rem;
-
-$sl-breakpoint-medium: 35.5em; // 568px, when 1em == 16px
-$sl-breakpoint-large:  50em;   // 800px, when 1em == 16px
-
-$sl-arrow-fontsize-small:  2rem;
-$sl-arrow-fontsize-medium: 3rem;
-$sl-arrow-fontsize-large:  3rem;
-$sl-img-border-small:  0 none;
-$sl-img-border-medium: 0 none;
-$sl-img-border-large:  0 none;
-$sl-iframe-border-small:  0 none;
-$sl-iframe-border-medium: 0 none;
-$sl-iframe-border-large:  0 none;
-
 
 
 body.hidden-scroll {
@@ -84,8 +70,8 @@ body.hidden-scroll {
       position: fixed;
       top: 50%;
       margin-top: -22px;
-      height: 44px;
-      width: 22px;
+      height: 50px;
+      width: 50px;
       line-height: 44px;
       text-align: center;
       display: block;
@@ -101,32 +87,6 @@ body.hidden-scroll {
         left: 5px;
         background-image: url('arrow-left.png');
       }
-      @media (min-width: $sl-breakpoint-medium) {
-        width: 44px;
-
-        &.sl-next {
-          right: 10px;
-          font-size: $sl-arrow-fontsize-medium;
-        }
-
-        &.sl-prev {
-          left: 10px;
-          font-size: $sl-arrow-fontsize-medium;
-        }
-      }
-      @media (min-width: $sl-breakpoint-large) {
-        width: 44px;
-
-        &.sl-next {
-          right: 20px;
-          font-size: $sl-arrow-fontsize-large;
-        }
-
-        &.sl-prev {
-          left: 20px;
-          font-size: $sl-arrow-fontsize-large;
-        }
-      }
     }
   }
 
@@ -139,24 +99,11 @@ body.hidden-scroll {
       margin: 0;
       padding: 0;
       display: block;
-      border: $sl-img-border-small;
-      @media (min-width: $sl-breakpoint-medium) {
-        border: $sl-img-border-medium;
-      }
-      @media (min-width: $sl-breakpoint-large) {
-        border: $sl-img-border-large;
-      }
-
+      border: none;
     }
     iframe {
       background: #000;
-      border: $sl-iframe-border-small;
-      @media (min-width: $sl-breakpoint-medium) {
-        border: $sl-iframe-border-medium;
-      }
-      @media (min-width: $sl-breakpoint-large) {
-        border: $sl-iframe-border-large;
-      }
+      border: none;
     }
     .sl-caption {
       display: none;
