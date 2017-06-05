@@ -26,7 +26,12 @@
 
     <div class="is-active">
       <%= f.label :isActive, 'Vai teksts ir redzams?', class: 'label'%><br>
-      <%= f.check_box :isActive, class: 'input', checked: true %>
+
+      <% if @maintext.order %>
+          <%= f.check_box :isActive, class: 'input'%>
+      <% else %>
+          <%= f.check_box :isActive, class: 'input', checked: true %>
+      <% end %>
     </div>
 
     <div class="actions">

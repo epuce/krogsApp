@@ -26,7 +26,7 @@
             <% end %>
           </td>
           <td class="show"><%= link_to 'Parādīt', maintext %></td>
-          <td class="edit"><%= link_to 'Labot', new_maintext_path(maintext) %></td>
+          <td class="edit"><%= link_to 'Labot', edit_maintext_path(maintext) %></td>
           <td class="delete"><%= link_to 'Dzēst', maintext, method: :delete, data: { confirm: 'Esi pārliecināts?' } %></td>
         </tr>
       <% end %>
