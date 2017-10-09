@@ -4,328 +4,333 @@
 
 @import "variables";
 
-// Place all the styles related to the Maintexts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-@import "variables";
+.group-wrapper {
+  display: inline-block;
 
-@media (min-width: $desktop-min) {
-  .groups {
+  .group,
+  .subgroup {
+    display: flex;
+  }
 
-    &-header {
-      padding: 10px 0;
-    }
-
-    .table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .table-head {
-      font-weight: 700;
-
-      td {
-        font-size: 24px;
-        line-height: 2;
-      }
-    }
-
-    .table-body {
-      .text {
-        padding: 20px 10px;
-      }
-
-      td {
-        border: 1px solid #000000;
-        font-size: 22px;
-        line-height: 1;
-
-        &:first-child {
-          border-left: none;
-        }
-        &:last-child {
-          border-right: none;
-        }
-
-        a {
-          margin: 0 15px;
-        }
-      }
-    }
-
-    .add {
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    .edit_group {
-      font-size: 0;
-
-      .text, .order, .is-active {
-        display: inline-table;
-        box-sizing: border-box;
-        font-size: 16px;
-
-        .label {
-          margin: 15px 0;
-          display: inline-block;
-          font-weight: 700;
-        }
-      }
-
-      .text ,.order {
-        padding: 0 20px;
-        width: 40%;
-
-        .input {
-          width: 100%;
-          box-sizing: border-box;
-          font-size: 16px;
-        }
-      }
-
-      .order {
-        .input {
-          text-align: center;
-        }
-      }
-
-      .is-active {
-        width: 20%;
-
-        .input{
-          width: 25px;
-          height: 20px;
-        }
-      }
-
-      .submit-btn {
-        margin-top: 20px;
-        width: 150px;
-        height: 30px;
-        font-size: 20px;
-        font-weight: 700;
-      }
-    }
+  .subgroup {
+    margin-left: 30px;
   }
 }
 
-@media (max-width: $tablet-max) and (min-width: $tablet-min) {
-  .groups {
-
-    &-header {
-      padding: 10px 0;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .table-head {
-      font-weight: 700;
-
-      td {
-        font-size: 22px;
-        line-height: 2;
-      }
-    }
-
-    .table-body {
-      .text, .is-active {
-        font-size: 22px;
-        line-height: 1;
-      }
-
-      .text {
-        padding: 20px 10px;
-      }
-
-      td {
-        border: 1px solid #000000;
-
-        &:first-child {
-          border-left: none;
-        }
-        &:last-child {
-          border-right: none;
-        }
-
-        a {
-          margin: 0 15px;
-        }
-      }
-    }
-
-    .add {
-      font-size: 26px;
-      font-weight: 700;
-    }
-
-    .edit_group {
-      font-size: 0;
-
-      .text, .order, .is-active {
-        display: inline-table;
-        font-size: 16px;
-        box-sizing: border-box;
-
-        .label {
-          margin: 15px 0;
-          display: inline-block;
-          font-weight: 700;
-        }
-
-        .input {
-          width: 100%;
-        }
-      }
-
-      .text, .order {
-        padding: 0 20px;
-        width: 40%;
-
-        .input {
-          width: 100%;
-          box-sizing: border-box;
-          font-size: 16px;
-        }
-      }
-
-      .is-active {
-        width: 20%;
-
-        .input{
-          width: 25px;
-          height: 20px;
-        }
-      }
-
-      .submit-btn {
-        margin-top: 20px;
-        width: 150px;
-        height: 30px;
-        font-size: 20px;
-        font-weight: 700;
-      }
-    }
-  }
-}
-
-@media (max-width: $mobile-max) {
-  .groups {
-
-    &-header {
-      padding: 10px 0;
-      font-size: 60px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .table-head {
-      font-weight: 700;
-      font-size: 30px;
-    }
-
-    .table-body {
-      tr {
-        font-size: 0;
-      }
-
-      .group {
-        border-bottom: 1px #000000 solid;
-      }
-
-      .text, .order, .is-active {
-        height: 100%;
-        font-size: 37px;
-        line-height: 1;
-        box-sizing: border-box;
-      }
-
-      .text {
-        padding: 20px 10px;
-        width: 75%;
-        border-left: none;
-      }
-
-      .is-active {
-        width: 25%;
-        border-right: none;
-      }
-
-      .delete {
-        border-right: none;
-      }
-
-      .show {
-        border-left: none;
-      }
-
-      .show, .edit, .delete {
-        width: 100%;
-        height: 60px;
-        display: block;
-        box-sizing: border-box;
-        font-size: 44px;
-        line-height: 60px;
-
-        a {
-          margin: 0 15px;
-        }
-      }
-    }
-
-    .add {
-      font-size: 44px;
-      font-weight: 700;
-    }
-
-    .edit_group {
-      font-size: 0;
-
-      .text, .order, .is-active {
-        font-size: 38px;
-
-        .label {
-          margin: 15px 0;
-          display: inline-block;
-          font-size: 44px;
-          font-weight: 700;
-        }
-      }
-
-      .text, .order {
-        .input {
-          height: 55px;
-          font-size: 38px;
-          width: 80%;
-          text-align: center;
-        }
-      }
-
-      .is-active {
-        .input {
-          height: 100px;
-          width: 60px;
-        }
-      }
-    }
-
-    .edit, .back, .show {
-      width: 40%;
-      display: inline-block;
-      font-size: 44px;
-    }
-
-    .submit-btn {
-      width: 300px;
-      height: 60px;
-      font-size: 44px;
-      font-weight: 700;
-    }
-  }
-}
+//@media (min-width: $desktop-min) {
+//  .groups {
+//
+//    &-header {
+//      padding: 10px 0;
+//    }
+//
+//    .table {
+//      width: 100%;
+//      border-collapse: collapse;
+//    }
+//
+//    .table-head {
+//      font-weight: 700;
+//
+//      td {
+//        font-size: 24px;
+//        line-height: 2;
+//      }
+//    }
+//
+//    .table-body {
+//      .text {
+//        padding: 20px 10px;
+//      }
+//
+//      td {
+//        border: 1px solid #000000;
+//        font-size: 22px;
+//        line-height: 1;
+//
+//        &:first-child {
+//          border-left: none;
+//        }
+//        &:last-child {
+//          border-right: none;
+//        }
+//
+//        a {
+//          margin: 0 15px;
+//        }
+//      }
+//    }
+//
+//    .add {
+//      font-size: 26px;
+//      font-weight: 700;
+//    }
+//
+//    .edit_group {
+//
+//      .text, .order, .is-active {
+//        display: inline-table;
+//        box-sizing: border-box;
+//        font-size: 16px;
+//
+//        .label {
+//          margin: 15px 0;
+//          display: inline-block;
+//          font-weight: 700;
+//        }
+//      }
+//
+//      .text ,.order {
+//        padding: 0 20px;
+//        width: 40%;
+//
+//        .input {
+//          width: 100%;
+//          box-sizing: border-box;
+//          font-size: 16px;
+//        }
+//      }
+//
+//      .order {
+//        .input {
+//          text-align: center;
+//        }
+//      }
+//
+//      .is-active {
+//        width: 20%;
+//
+//        .input{
+//          width: 25px;
+//          height: 20px;
+//        }
+//      }
+//
+//      .submit-btn {
+//        margin-top: 20px;
+//        width: 150px;
+//        height: 30px;
+//        font-size: 20px;
+//        font-weight: 700;
+//      }
+//    }
+//  }
+//}
+//
+//@media (max-width: $tablet-max) and (min-width: $tablet-min) {
+//  .groups {
+//
+//    &-header {
+//      padding: 10px 0;
+//    }
+//
+//    table {
+//      width: 100%;
+//      border-collapse: collapse;
+//    }
+//
+//    .table-head {
+//      font-weight: 700;
+//
+//      td {
+//        font-size: 22px;
+//        line-height: 2;
+//      }
+//    }
+//
+//    .table-body {
+//      .text, .is-active {
+//        font-size: 22px;
+//        line-height: 1;
+//      }
+//
+//      .text {
+//        padding: 20px 10px;
+//      }
+//
+//      td {
+//        border: 1px solid #000000;
+//
+//        &:first-child {
+//          border-left: none;
+//        }
+//        &:last-child {
+//          border-right: none;
+//        }
+//
+//        a {
+//          margin: 0 15px;
+//        }
+//      }
+//    }
+//
+//    .add {
+//      font-size: 26px;
+//      font-weight: 700;
+//    }
+//
+//    .edit_group {
+//
+//      .text, .order, .is-active {
+//        display: inline-table;
+//        font-size: 16px;
+//        box-sizing: border-box;
+//
+//        .label {
+//          margin: 15px 0;
+//          display: inline-block;
+//          font-weight: 700;
+//        }
+//
+//        .input {
+//          width: 100%;
+//        }
+//      }
+//
+//      .text, .order {
+//        padding: 0 20px;
+//        width: 40%;
+//
+//        .input {
+//          width: 100%;
+//          box-sizing: border-box;
+//          font-size: 16px;
+//        }
+//      }
+//
+//      .is-active {
+//        width: 20%;
+//
+//        .input{
+//          width: 25px;
+//          height: 20px;
+//        }
+//      }
+//
+//      .submit-btn {
+//        margin-top: 20px;
+//        width: 150px;
+//        height: 30px;
+//        font-size: 20px;
+//        font-weight: 700;
+//      }
+//    }
+//  }
+//}
+//
+//@media (max-width: $mobile-max) {
+//  .groups {
+//
+//    &-header {
+//      padding: 10px 0;
+//      font-size: 60px;
+//    }
+//
+//    table {
+//      width: 100%;
+//      border-collapse: collapse;
+//    }
+//
+//    .table-head {
+//      font-weight: 700;
+//      font-size: 30px;
+//    }
+//
+//    .table-body {
+//      tr {
+//        font-size: 0;
+//      }
+//
+//      .group {
+//        border-bottom: 1px #000000 solid;
+//      }
+//
+//      .text, .order, .is-active {
+//        height: 100%;
+//        font-size: 37px;
+//        line-height: 1;
+//        box-sizing: border-box;
+//      }
+//
+//      .text {
+//        padding: 20px 10px;
+//        width: 75%;
+//        border-left: none;
+//      }
+//
+//      .is-active {
+//        width: 25%;
+//        border-right: none;
+//      }
+//
+//      .delete {
+//        border-right: none;
+//      }
+//
+//      .show {
+//        border-left: none;
+//      }
+//
+//      .show, .edit, .delete {
+//        width: 100%;
+//        height: 60px;
+//        display: block;
+//        box-sizing: border-box;
+//        font-size: 44px;
+//        line-height: 60px;
+//
+//        a {
+//          margin: 0 15px;
+//        }
+//      }
+//    }
+//
+//    .add {
+//      font-size: 44px;
+//      font-weight: 700;
+//    }
+//
+//    .edit_group {
+//
+//      .text, .order, .is-active {
+//        font-size: 38px;
+//
+//        .label {
+//          margin: 15px 0;
+//          display: inline-block;
+//          font-size: 44px;
+//          font-weight: 700;
+//        }
+//      }
+//
+//      .text, .order {
+//        .input {
+//          height: 55px;
+//          font-size: 38px;
+//          width: 80%;
+//          text-align: center;
+//        }
+//      }
+//
+//      .is-active {
+//        .input {
+//          height: 100px;
+//          width: 60px;
+//        }
+//      }
+//    }
+//
+//    .edit, .back, .show {
+//      width: 40%;
+//      display: inline-block;
+//      font-size: 44px;
+//    }
+//
+//    .submit-btn {
+//      width: 300px;
+//      height: 60px;
+//      font-size: 44px;
+//      font-weight: 700;
+//    }
+//  }
+//}

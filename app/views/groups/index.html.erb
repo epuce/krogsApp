@@ -1,44 +1,58 @@
-<div class="admin groups">
-  <p id="notice"><%= notice %></p>
+<div class="admin">
+  <p id="notice">
+    <%= notice %>
+  </p>
 
-  <h1>Listing Groups</h1>
+  <h1>Grupu/apakšgrupu saraksts</h1>
 
-  <table class="table">
-    <thead  class="table-head">
-    <tr>
-      <td>Grupas nosaukums</td>
-      <td>Secība</td>
-      <td>Aktīva?</td>
-    </tr>
-    </thead>
+  <div class="group-wrapper">
+    <% @groups.group(:text).each do |group| %>
+      <%= form_for(group) do |f| %>
+        <div class="group">
+          <div class="is-active">
+            <%= f.check_box :isActive%>
+          </div>
 
-    <tbody class="table-body">
-    <% @groups.each do |group| %>
-        <tr class="group">
-          <td class="text">
-            <%= group.text %></td>
-          <td class="order">
-            <%= group.order %>
-          </td>
-          <td class="is-active">
-            <% if group.isActive %>
-                Jā
-            <% else %>
-                Nē
-            <% end %>
-          </td>
-          <td class="control-panel-btns">
-            <span class="show"><%= link_to 'Parādīt', group %></span>
-            <span class="edit"><%= link_to 'Labot', edit_group_path(group) %></span>
-            <span class="delete"><%= link_to 'Dzēst', group, method: :delete, data: { confirm: 'Esi pārliecināts?' } %></span>
-          </td>
-        </tr>
+          <div class="name">
+            <%= group.text %>
+            <%= f.text_field :text, class: 'hidden' %>
+          </div>
+        </div>
+
+        <% @groups.where(text: group.text).find_each do |subgroups| %>
+          <div class="subgroup">
+            <div class="is-active">
+              <%= f.check_box :subIsActive%>
+            </div>
+
+            <div class="subname">
+              <%= subgroups.subgroup %>
+              <%= f.text_field :subgroup, class: 'hidden' %>
+            </div>
+          </div>
+        <% end %>
+
+        <%= f.submit 'Saglabāt', class: 'submit-btn'%>
+      <% end %>
+
+      <%= form_for(@group) do |f2| %>
+        <%= f2.text_field :text, value: group.text, class: 'hidden' %>
+
+        <div class="subgroup">
+          <div class="is-active">
+            <%= f2.check_box :subIsActive %>
+          </div>
+
+          <div class="subname">
+            <%= f2.text_field :subgroup, class: 'subgroup_new' %>
+          </div>
+        </diV>
+
+        <%= f2.submit 'Saglabāt', class: 'submit-btn'%>
+      <% end %>
     <% end %>
-    </tbody>
-  </table>
+  </div>
 
-  <br>
-
-  <%= link_to 'Pievienot jaunu grupu', new_group_path, class: 'add' %>
+    <%= render 'form' %>
+  </div>
 </div>
-

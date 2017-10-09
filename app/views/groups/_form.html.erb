@@ -11,26 +11,26 @@
     </div>
   <% end %>
 
-    <div class="text">
-      <%= f.label :text, 'Grupas nosaukums', class: 'label' %><br>
-      <%= f.text_field :text, class: 'input' %>
+  <div class="group">
+    <div class="is-active">
+      <%= f.label :isActive, 'Aktīva?'%><br>
+      <%= f.check_box :isActive%>
     </div>
 
-    <div class="order">
-      <%= f.label :order, 'Grupēšanas secība?', class: 'label'%><br>
-      <% if @group.order %>
-          <%= f.number_field :order, min: 1 %>
-      <% else %>
-          <%= f.number_field :order, value: Group.all.length + 1, min: 1 %>
-      <% end %>
+    <div class="name">
+      <%= f.label :text, 'Grupas nosaukums'%><br>
+      <%= f.text_field :text %>
     </div>
 
     <div class="is-active">
-      <%= f.label :isActive, 'Vai grupa ir redzama?', class: 'label'%><br>
-      <%= f.check_box :isActive, class: 'input', checked: true %>
+      <%= f.label :subIsActive, 'Aktīva?'%><br>
+      <%= f.check_box :subIsActive%>
     </div>
 
-  <div class="actions">
+    <div class="subname">
+      <%= f.text_field :subgroup %>
+    </div>
+
     <%= f.submit 'Saglabāt', class: 'submit-btn'%>
   </div>
 <% end %>

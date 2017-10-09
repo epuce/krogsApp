@@ -16,6 +16,10 @@
 
 @import "variables";
 
+.hidden {
+  display: none;
+}
+
 .bg-image {
   position: fixed;
   top: 0;
