@@ -13,10 +13,14 @@
 <div class="menu wrapper">
   <div class="page page-0">
     <ul class="group">
-      <% @groups.order(:order).each do |group| %>
-          <% if group.isActive %>
-              <li class="nav-item js-nav-item js-page" rel="page-<%=group.id%>"><%= group.text %></li>
-          <% end %>
+      <% @groups.where(isActive: true).order(:order).each do |group| %>
+              <li class="nav-item js-nav-item js-page" rel="page-<%=group.id%>"><%= group.text %>
+                <ul class="subgroup">
+                  <% @subgroups.where(group_id: group.id, isActive: true).order(:order).find_each do |subgroup| %>
+                    <li class="nav-item js-nav-item js-page" rel="page-<%=subgroup.id%>"><%= subgroup.sub %>
+                  <% end %>
+                </ul>
+              </li>
       <% end %>
     </ul>
   </div>

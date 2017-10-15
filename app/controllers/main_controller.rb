@@ -5,5 +5,6 @@ class MainController < ApplicationController
     @maintexts = Maintext.all
     @foods = Food.all
     @pictures = Picture.all
+    @subgroups = Subgroup.all
   end
 end

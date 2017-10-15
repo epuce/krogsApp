@@ -1,10 +1,13 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
+  before_action :set_subgroup, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
   def index
     @groups = Group.all
     @group = Group.new
+    @subgroups = Subgroup.all
+    @subgroup = Subgroup.new
   end
 
   # POST /groups
@@ -13,7 +16,7 @@ class GroupsController < ApplicationController
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to groups_path, notice: 'Veiksmīgi pievienota grupa vai apakšgrupa' }
+        format.html { redirect_to groups_path, notice: 'Veiksmīgi pievienota grupa' }
       else
         format.html { redirect_to groups_path, notice: 'Lūdzu mēģini vēlreiz, kaut kas nogāja greizi' }
       end

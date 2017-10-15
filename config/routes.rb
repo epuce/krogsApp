@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :pictures
   resources :foods
   resources :groups
+  resources :subgroups
   resources :maintexts
   resources :main
 

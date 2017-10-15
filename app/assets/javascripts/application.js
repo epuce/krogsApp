@@ -12,26 +12,40 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree ./plugins
 
 $(function() {
     var $window = $(window),
         $body = $('body'),
         $viewportMeta = $('meta[name="viewport"]'),
-        $header = $('.header'),
         $navItem = $('.js-nav-item'),
+
+        $header = $('.header'),
+        $group = $header.find('.group'),
         $headerLogo = $header.find('.logo'),
         $headerOpenDropdown = $header.find('.js-open-drop-down'),
-        $group = $header.find('.group'),
+
         $menuWrapepr = $('.menu'),
         $page = $menuWrapepr.find('.page'),
         $allgroups = $page.find('.js-all-groups'),
+
         $gallertWrapepr = $('.gallery'),
         $picture = $gallertWrapepr.find('.picture'),
         $showMore = $gallertWrapepr.find('.show-more'),
         $hideMore = $gallertWrapepr.find('.hide-more'),
+
         $allPictures = $('.picture'),
         $visiblePictures;
+
+    $('.subgroup-wrapper').sortable();
+
+    $('.group-wrapper').sortable();
+    
+    $('.js-trigger-all-submit').on('click', function () {
+        $('.group-wrapper').find('.js-submit').each(function () {
+            $(this).trigger('click')
+        })
+    })
 
     function mobileMetatag() {
         if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 ) {
