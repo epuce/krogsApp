@@ -4,73 +4,48 @@
   </p>
 
   <h1>Grupu/apakšgrupu saraksts</h1>
-  <div class="group-wrapper_full">
-  <div class="group-wrapper">
 
-    <% @groups.group(:text).order(:order).each do |group| %>
+  <%= form_tag update_multiple_groups_path, method: :put do %>
+    <div class="group-wrapper">
+      <% @groups.group(:text).order(:order).each do |group| %>
+        <%= fields_for "groups[]", group do |f| %>
+          <div class="group">
+              <%= f.check_box :isActive, {checked: group.isActive} %>
 
-        <%= form_for(group) do |f| %>
+              <div class="js-visible-group"><%= group.text%></div>
 
-            <div class="group">
-              <div class="is-active">
-                <%= f.check_box :isActive%>
-              </div>
-
-              <div class="name">
-                <%= group.text %>
-
-                <%= f.text_field :text, class: 'hidden' %>
-              </div>
+              <%= f.text_field :text, class: 'hidden js-hidden-group' %>
 
               <%= link_to 'Dzēst', group, class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
-            </div>
-       <% end %>
 
-        <div class="subgroup-wrapper_full">
           <div class="subgroup-wrapper">
+            <% @subgroups.where(group_id: group.id).order(:order).find_each do |subgroup| %>
+              <%= fields_for "subgroups[]", subgroup do |f| %>
+                <div class="subgroup">
+                  <%= f.check_box :isActive %>
 
-            <% @subgroups.where(group_id: group.id).find_each do |subgroups| %>
+                  <div class="js-visible-group"><%= subgroup.subgroup %></div>
 
-                <%= form_for(subgroups) do |editSub| %>
+                  <%= f.text_field :subgroup, class: 'hidden js-hidden-group' %>
 
-                    <div class="subgroup">
-                      <div class="is-active">
-                        <%= editSub.check_box :isActive%>
-                      </div>
-
-                      <div class="subname">
-                        <%= subgroups.subgroup %>
-
-                        <%= editSub.text_field :subgroup, class: 'hidden' %>
-                      </div>
-
-                      <%= link_to 'Dzēst', Subgroup.find(subgroups.id), class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
+                  <%= link_to 'Dzēst', subgroup, class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
                 </div>
-                <% end %>
+              <% end %>
             <% end %>
           </div>
-
-        <%= form_for(@subgroup) do |fSub| %>
-            <%= fSub.text_field :group_id, value: group.id, class: 'hidden' %>
-            <div class="is-active">
-              <%= fSub.check_box :isActive%>
-            </div>
-
-            <div class="name">
-              <%= fSub.text_field :subgroup %>
-            </div>
-
-            <%= fSub.submit 'Pievienot jaunu apakšgrupu', class: 'submit-btn'%>
-        <% end %>
         </div>
-    <% end %>
+        <% end %>
+      <% end %>
   </div>
+
+      <%= submit_tag 'saglabāt' %>
+  <% end %>
 
   <%= form_for(@group) do |f| %>
       <div class="group">
         <div class="is-active">
           <%= f.label :isActive, 'Aktīva?'%><br>
-          <%= f.check_box :isActive%>
+          <%= f.check_box :isActive, {checked: true}%>
         </div>
 
         <div class="name">
@@ -79,7 +54,18 @@
         </div>
       </div>
 
-      <%= f.submit 'Pievienot jaunu grupu', class: 'submit-btn'%>
+      <%= f.submit 'Pievienot jaunu grupu'%>
   <% end %>
-  </div>
+
+  <%= form_for(@subgroup) do |f| %>
+    <div class="subgroup">
+      <%= f.check_box :isActive, {checked: true} %>
+
+      <%= f.text_field :subgroup %>
+
+      <%= f.collection_select :group_id, Group.all, :id, :text%>
+    </div>
+
+    <%= submit_tag 'Pievienot jaunu apakšgrupu' %>
+  <% end %>
 </div>

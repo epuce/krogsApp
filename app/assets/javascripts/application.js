@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree ./plugins
+//= require_tree ./groups
+
 
 $(function() {
     var $window = $(window),
@@ -37,15 +39,22 @@ $(function() {
         $allPictures = $('.picture'),
         $visiblePictures;
 
-    $('.subgroup-wrapper').sortable();
+    $('.js-visible-group').on('click', function () {
+        var $visibleGroup = $(this),
+            $hiddenRelated = $visibleGroup.siblings('.js-hidden-group');
 
-    $('.group-wrapper').sortable();
-    
-    $('.js-trigger-all-submit').on('click', function () {
-        $('.group-wrapper').find('.js-submit').each(function () {
-            $(this).trigger('click')
-        })
-    })
+        $visibleGroup.hide();
+
+        $hiddenRelated.show().trigger('focus');
+
+        $hiddenRelated.on('blur', function () {
+            var $hiddenRelatedVal = $hiddenRelated.val();
+
+            $visibleGroup.text($hiddenRelatedVal).show();
+
+            $(this).off('blur').hide();
+        });
+    });
 
     function mobileMetatag() {
         if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 ) {

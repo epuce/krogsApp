@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   resources :users
   resources :pictures
   resources :foods
-  resources :groups
-  resources :subgroups
+  resources :groups do
+    collection do
+      put 'update_multiple'
+    end
+  end
   resources :maintexts
   resources :main
+
+  resources :subgroups
 
   get 'contacts/index'
 

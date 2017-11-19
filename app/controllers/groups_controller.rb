@@ -1,11 +1,11 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
-  before_action :set_subgroup, only: [:show, :edit, :update, :destroy]
 
   # GET /groups
   def index
     @groups = Group.all
     @group = Group.new
+
     @subgroups = Subgroup.all
     @subgroup = Subgroup.new
   end
@@ -38,9 +38,20 @@ class GroupsController < ApplicationController
   # DELETE /groups/1.json
   def destroy
     @group.destroy
+
+    Subgroup.where(group_id: @group.id).destroy_all
+
     respond_to do |format|
       format.html { redirect_to groups_path, notice: 'Grupa vai apakšgrupa veiksmīgi dzēsta' }
     end
+  end
+
+  def update_multiple
+    Group.update(params[:groups].keys, params[:groups].values)
+
+    Subgroup.update(params[:subgroups].keys, params[:subgroups].values)
+
+    redirect_to groups_path
   end
 
   private
