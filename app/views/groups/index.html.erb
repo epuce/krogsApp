@@ -1,4 +1,4 @@
-<div class="admin">
+<div class="groups admin">
   <p id="notice">
     <%= notice %>
   </p>
@@ -10,62 +10,81 @@
       <% @groups.group(:text).order(:order).each do |group| %>
         <%= fields_for "groups[]", group do |f| %>
           <div class="group">
-              <%= f.check_box :isActive, {checked: group.isActive} %>
+            <%= f.number_field :order, {value: group.order, class: 'order hidden'} %>
 
-              <div class="js-visible-group"><%= group.text%></div>
+            <%= f.check_box :isActive, {checked: group.isActive} %>
 
-              <%= f.text_field :text, class: 'hidden js-hidden-group' %>
+            <div class="js-visible-group"><%= group.text%></div>
 
-              <%= link_to 'Dzēst', group, class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
+            <%= f.text_field :text, class: 'hidden js-hidden-group' %>
 
-          <div class="subgroup-wrapper">
-            <% @subgroups.where(group_id: group.id).order(:order).find_each do |subgroup| %>
-              <%= fields_for "subgroups[]", subgroup do |f| %>
-                <div class="subgroup">
-                  <%= f.check_box :isActive %>
+            <%= link_to 'Dzēst', group, class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
 
-                  <div class="js-visible-group"><%= subgroup.subgroup %></div>
+            <div class="subgroup-wrapper">
+              <% @subgroups.where(group_id: group.id).order(:order).find_each do |subgroup| %>
+                <%= fields_for "subgroups[]", subgroup do |f| %>
+                  <div class="subgroup">
+                    <%= f.number_field :order, {value: group.order, class: 'order hidden'} %>
 
-                  <%= f.text_field :subgroup, class: 'hidden js-hidden-group' %>
+                    <%= f.check_box :isActive %>
 
-                  <%= link_to 'Dzēst', subgroup, class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
-                </div>
+                    <div class="js-visible-group">
+                      <%= subgroup.subgroup %>
+                    </div>
+
+                    <%= f.text_field :subgroup, class: 'hidden js-hidden-group' %>
+
+                    <%= link_to 'Dzēst', subgroup, class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
+                  </div>
+                <% end %>
               <% end %>
-            <% end %>
+            </div>
           </div>
-        </div>
         <% end %>
       <% end %>
-  </div>
+    </div>
 
-      <%= submit_tag 'saglabāt' %>
+    <%= submit_tag 'Saglabāt izmaiņas', class:'submit-btn' %>
   <% end %>
 
-  <%= form_for(@group) do |f| %>
-      <div class="group">
-        <div class="is-active">
-          <%= f.label :isActive, 'Aktīva?'%><br>
-          <%= f.check_box :isActive, {checked: true}%>
+  <div class="new-records">
+    <%= form_for(@group) do |f| %>
+        <div class="group">
+          <%= f.number_field :order, {value: Group.maximum('order') + 1, class: 'hidden'} %>
+
+          <div class="is-active">
+            <%= f.check_box :isActive, {checked: true} %>
+          </div>
+
+          <div class="group_name">
+            <%= f.label :text, 'Grupas nosaukums' %>
+            <%= f.text_field :text %>
+          </div>
         </div>
 
-        <div class="name">
-          <%= f.label :text, 'Grupas nosaukums'%><br>
-          <%= f.text_field :text %>
+        <%= f.submit 'Pievienot jaunu grupu', class: 'submit-btn' %>
+    <% end %>
+
+    <%= form_for(@subgroup) do |f| %>
+      <div class="subgroup">
+        <%= f.number_field :order, {value: Group.maximum('order') + 1, class: 'hidden'} %>
+
+        <div class="is-active">
+          <%= f.check_box :isActive, {checked: true} %>
+        </div>
+
+        <div class="subgroup_name">
+          <%= f.label :subgroup, 'Apakšgrupas nosaukums'%>
+          <%= f.text_field :subgroup %>
+        </div>
+
+        <div class="group_name">
+          <%= f.label :group_id, 'Grupas nosaukums'%>
+          <%= f.collection_select :group_id, Group.all, :id, :text%>
         </div>
       </div>
 
-      <%= f.submit 'Pievienot jaunu grupu'%>
-  <% end %>
-
-  <%= form_for(@subgroup) do |f| %>
-    <div class="subgroup">
-      <%= f.check_box :isActive, {checked: true} %>
-
-      <%= f.text_field :subgroup %>
-
-      <%= f.collection_select :group_id, Group.all, :id, :text%>
-    </div>
-
-    <%= submit_tag 'Pievienot jaunu apakšgrupu' %>
-  <% end %>
+      <%= f.submit 'Pievienot jaunu apakšgrupu', class: 'submit-btn' %>
+    <% end %>
+  </div>
 </div>

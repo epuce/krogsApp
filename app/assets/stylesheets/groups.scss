@@ -4,52 +4,107 @@
 
 @import "variables";
 
-.group-wrapper {
-  display: inline-block;
-
-  &_full {
+.groups {
+  .group-wrapper {
     display: inline-block;
-  }
 
-  .group,
-  .subgroup,
-  .delete {
-    display: flex;
-    cursor: pointer;
-  }
+    .group {
+      text-align: left;
 
-  .subgroup {
-    margin-left: 30px;
-  }
+      > * {
+        display: inline-block;
+        cursor: pointer;
+      }
 
-  .delete {
-    margin-left: 15px;
-  }
-
-  .new_subgroup {
-    .is-active {
-      margin-left: 30px;
-      display: inline-block;
+      .hidden {
+        display: none;
+      }
     }
 
-    .name {
-      display: inline-block;
-    }
-
-    .submit-btn {
-      margin: 10px auto;
+    .subgroup-wrapper {
       display: block;
     }
-  }
-}
 
-.new_group {
-  .group {
+    .subgroup {
+      margin-left: 30px;
+      cursor: pointer;
+
+      > * {
+        display: inline-block;
+      }
+
+      .hidden {
+        display: none;
+      }
+    }
+
+    .delete {
+      margin-left: 15px;
+    }
+
+    .new_subgroup {
+      .is-active {
+        margin-left: 30px;
+        display: inline-block;
+      }
+
+      .name {
+        display: inline-block;
+      }
+    }
+  }
+
+  .new-records {
+    margin-top: 20px;
     display: flex;
+
+    .new_group {
+      width: 50%;
+
+      .group {
+        > div {
+          margin-left: 7px;
+          display: inline-block;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 10px;
+        }
+
+        input {
+          height: 25px;
+        }
+      }
+    }
+
+    .new_subgroup {
+      width: 50%;
+
+      .subgroup {
+        > div {
+          margin-left: 7px;
+          display: inline-block;
+        }
+
+        label {
+          display: block;
+          margin-bottom: 10px;
+        }
+
+        input,
+        select {
+          height: 25px;
+        }
+      }
+    }
   }
 
   .submit-btn {
     margin: 10px auto;
+    padding: 5px 10px;
+    border-radius: 8px;
     display: block;
+    cursor: pointer;
   }
 }

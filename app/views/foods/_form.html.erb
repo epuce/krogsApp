@@ -37,7 +37,7 @@
 
     <div class="input-block group">
       <%= f.label "Ēdiena kategorija", class: 'label' %><br>
-      <%= f.collection_select :subgroup_id, Subgroup.all, :id, :text%>
+      <%= f.collection_select :subgroup_id, Subgroup.all, :id, :subgroup%>
     </div>
 
     <div class="input-block is-active">
