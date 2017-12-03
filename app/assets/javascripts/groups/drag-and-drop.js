@@ -7,7 +7,7 @@ $(function() {
 
   // Init group drag and drop, set the new order value
   $groupWrapper.sortable({
-    update: function( event, ui ) {
+    update: function() {
       $(this).find('.group').each(function(i){
         $(this)
           .find('.order')
@@ -18,8 +18,11 @@ $(function() {
 
   // Init subgroup drag and drop, set the new order value
   $subgroupWrapper.sortable({
-    update: function( event, ui ) {
-      $(this).find('.sub-group').each(function(i){
+    update: function() {
+      $(this).find('.subgroup').each(function(i){
+
+        console.log(i)
+
         $(this)
           .find('.order')
           .val(i+1);

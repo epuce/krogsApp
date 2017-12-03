@@ -63,6 +63,6 @@ class GroupsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
       params.fetch(:group, {})
-      params.require(:group).permit(:text, :subgroup, :order, :suborder, :isActive, :subIsActive)
+      params.require(:group).permit(:name, :order, :isActive)
     end
 end

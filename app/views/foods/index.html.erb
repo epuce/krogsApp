@@ -30,15 +30,13 @@
           <td class="order">
             <%= food.order %>
           </td>
+
           <td class="group">
-            <%= food.group.text %>
+			  <%= food.group_id ? Group.find(food.group_id).name : Subgroup.find(food.subgroup_id).name  %>
           </td>
+
           <td class="is-active">
-            <% if food.isActive %>
-                Jā
-            <% else %>
-                Nē
-            <% end %>
+            <%= food.isActive ? "Jā" : "Nē"%>
           </td>
         </tr>
         <tr>
@@ -56,4 +54,3 @@
 
   <%= link_to 'Pievienot jaunu ēdienu', new_food_path, class: 'submit-btn'%>
 </div>
-

@@ -7,32 +7,32 @@
 
   <%= form_tag update_multiple_groups_path, method: :put do %>
     <div class="group-wrapper">
-      <% @groups.group(:text).order(:order).each do |group| %>
+      <% @groups.order(:order).each do |group| %>
         <%= fields_for "groups[]", group do |f| %>
           <div class="group">
             <%= f.number_field :order, {value: group.order, class: 'order hidden'} %>
 
             <%= f.check_box :isActive, {checked: group.isActive} %>
 
-            <div class="js-visible-group"><%= group.text%></div>
+            <div class="js-visible-group"><%= group.name %></div>
 
-            <%= f.text_field :text, class: 'hidden js-hidden-group' %>
+            <%= f.text_field :name, class: 'hidden js-hidden-group' %>
 
             <%= link_to 'Dzēst', group, class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
 
             <div class="subgroup-wrapper">
-              <% @subgroups.where(group_id: group.id).order(:order).find_each do |subgroup| %>
+              <% @subgroups.where(group_id: group.id).order(:order).each do |subgroup| %>
                 <%= fields_for "subgroups[]", subgroup do |f| %>
                   <div class="subgroup">
-                    <%= f.number_field :order, {value: group.order, class: 'order hidden'} %>
+                    <%= f.number_field :order, {value: subgroup.order, class: 'order hidden'} %>
 
                     <%= f.check_box :isActive %>
 
                     <div class="js-visible-group">
-                      <%= subgroup.subgroup %>
+                      <%= subgroup.name %>
                     </div>
 
-                    <%= f.text_field :subgroup, class: 'hidden js-hidden-group' %>
+                    <%= f.text_field :name, class: 'hidden js-hidden-group' %>
 
                     <%= link_to 'Dzēst', subgroup, class: 'delete', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
                   </div>
@@ -57,8 +57,8 @@
           </div>
 
           <div class="group_name">
-            <%= f.label :text, 'Grupas nosaukums' %>
-            <%= f.text_field :text %>
+            <%= f.label :name, 'Grupas nosaukums' %>
+            <%= f.text_field :name %>
           </div>
         </div>
 
@@ -67,20 +67,20 @@
 
     <%= form_for(@subgroup) do |f| %>
       <div class="subgroup">
-        <%= f.number_field :order, {value: Group.maximum('order') + 1, class: 'hidden'} %>
+        <%= f.number_field :order, {value: Subgroup.maximum('order') + 1, class: 'hidden'} %>
 
         <div class="is-active">
           <%= f.check_box :isActive, {checked: true} %>
         </div>
 
         <div class="subgroup_name">
-          <%= f.label :subgroup, 'Apakšgrupas nosaukums'%>
-          <%= f.text_field :subgroup %>
+          <%= f.label :name, 'Apakšgrupas nosaukums'%>
+          <%= f.text_field :name %>
         </div>
 
         <div class="group_name">
           <%= f.label :group_id, 'Grupas nosaukums'%>
-          <%= f.collection_select :group_id, Group.all, :id, :text%>
+          <%= f.collection_select :group_id, Group.all.order(:order), :id, :name%>
         </div>
       </div>
 

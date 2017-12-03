@@ -43,6 +43,6 @@ class SubgroupsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def subgroup_params
     params.fetch(:subgroup, {})
-    params.require(:subgroup).permit(:subgroup, :order, :isActive, :group_id)
+    params.require(:subgroup).permit(:name, :order, :isActive, :group_id)
   end
 end
