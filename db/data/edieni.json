@@ -1,0 +1,315 @@
+[
+	{
+		"name": "Alus late",
+		"description": "šķiņķis, 3 veidu sieri, marinētas sēnes, marinēti gurķi, olīvas, sīpoli",
+		"price": 3.0,
+		"group": "Uzkodas",
+		"subgroup": "Aukstās uzkodas"
+	},{
+		"name": "Svaigu dārzeņu plate ar salātu mērci",
+		"description": "tomāti, gurķi, burkāni, paprika, ziedkāposti, lapu salāti",
+		"price": 2.4,
+		"group": "Uzkodas",
+		"subgroup": "Aukstās uzkodas"
+	},{
+		"name": "Ķiploku maizītes (5 gab.)",
+		"price": 0.8,
+		"group": "Uzkodas",
+		"subgroup": "Aukstās uzkodas"
+	},{
+		"name": "Svaigu dārzeņu un tītara filejas salāti",
+		"description": "Ķīnas kāposts, marinēta tītara fileja (karsta) svaigi gurķi, tomāti, sīpoli, angļu sinepes",
+		"price": 3.6,
+		"group": "Salāti"
+	},{
+		"name": "Garneļu  - avokado salāti",
+		"description": "garneles, ledus salāti, avokado, tomāti, majonēze",
+		"price": 3.0,
+		"group": "Salāti"
+	},{
+		"name": "Tunča salāti",
+		"description": "ledus salāti, tomāti, ola, tuncis",
+		"price": 2.2,
+		"group": "Salāti"
+	},{
+		"name": "Grieķu salāti",
+		"description": "ķīnas kāposts, svaigi gurķi, paprika, tomāti, olīvas, kazas siers, puravi, citronu sula, olīveļļa",
+		"price": 2.7,
+		"group": "Salāti"
+	},{
+		"name": "Mēļu šampinjonu salāti",
+		"description": "mēle, ledus salāti, marinēti šampinjoni, siers, tomāti, puravi, majonēze",
+		"price": 2.2,
+		"group": "Salāti"
+	},{
+		"name": "Karstie salāti",
+		"description": "kūpināta gaļa, kartupeļi, marinēti gurķi, zirnīši, olas, majonēze, kečups, siers",
+		"price": 2.5,
+		"group": "Salāti"
+	},{
+		"name": "Vistas gaļas salāti",
+		"description": "vistas gaļa, svaigi gurķi, ledus salāti, paprika, marinēti šampinjoni, majonēze",
+		"price": 1.6,
+		"group": "Salāti"
+	},{
+		"name": "Tomātu – siera salāti",
+		"description": "tomāti, siers, majonēze, ķiploki",
+		"price": 1.6,
+		"group": "Salāti"
+	},{
+		"name": "Čipsu salāti",
+		"description": "siers, žāvēts šķiņķis, marinēti gurķi, čipsi, olas, majonēze",
+		"price": 1.45,
+		"group": "Salāti"
+	},{
+		"name": "Šķiņķa salāti",
+		"description": "kūpināta gaļa, kartupeļi, marinēti gurķi, zirnīši, olas, majonēze",
+		"price": 1.6,
+		"group": "Salāti"
+	},{
+		"name": "Vistas gaļas strēmeles alus mīklā ar marinētiem dārzeņiem",
+		"price": 3.0,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Karstais Brie siers ar brūkleņu ievārījumu",
+		"price": 2.3,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Fritēti kartupeļi ar salātiem",
+		"price": 1.3,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Fritēti kartupeļi ar ketčupu",
+		"price": 1.3,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Fritēti kartupeļi ar majonēzi",
+		"price": 1.3,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Plānās pankūkas ar ķiršu želeju",
+		"price": 1.0,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Plānās pankūkas ar medu",
+		"price": 1.0,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Plānā pankūka pildīta ar šķiņķi un sieru",
+		"price": 1.4,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Plānā pankūka pildīta ar biezpienu un rozīnēm",
+		"price": 1.4,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Plānā pankūka pildīta ar banāniem un āboliem",
+		"price": 0.8,
+		"group": "Uzkodas",
+		"subgroup": "Karstās uzkodas"
+	},{
+		"name": "Baraviku zupa",
+		"price": 2.8,
+		"group": "Zupas"
+	},{
+		"name": "Tomātu zupa",
+		"price": 2.3,
+		"group": "Zupas"
+	},{
+		"name": "Gaļas soļanka",
+		"price": 1.3,
+		"group": "Zupas"
+	},{
+		"name": "Dārzeņu biezeņzupa ar garnelēm",
+		"price": 1.25,
+		"group": "Zupas"
+	},{
+		"name": "Dārzeņu biezeņzupa ar vistas gaļas strēmelēm",
+		"price": 1.25,
+		"group": "Zupas"
+	},{
+		"name": "Varavīksnes forele saldā krējuma mērcē ar vārītiem ceptiem kartupeļiem un svaigu dārzeņu salātiem",
+		"price": 7.5,
+		"group": "Otrie ēdieni",
+		"subgroup": "Zivju ēdieni"
+	},{
+		"name": "Laša medaljons ar rīsiem un svaigiem dārzeņiem",
+		"price": 5.0,
+		"group": "Otrie ēdieni",
+		"subgroup": "Zivju ēdieni"
+	},{
+		"name": "Karpas fileja ar zaļumu sviestu",
+		"price": 4.6,
+		"group": "Otrie ēdieni",
+		"subgroup": "Zivju ēdieni"
+	},{
+		"name": "Cepta menca ar tomātiem un ķiplokiem",
+		"price": 4.8,
+		"group": "Otrie ēdieni",
+		"subgroup": "Zivju ēdieni"
+	},{
+		"name": "Firmas ēdiens „Vidzemnieka pusdienpanna”",
+		"description" : "Cūku ribiņas ar ceptiem kartupeļiem, sautētiem kāpostiem un gaileņu mērci",
+		"price": 12.0,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Cūkgaļas šašliks",
+		"price": 7.0,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Sinepju mērcē pagatavota cūkas fileja un dārzeņi, pasniegti podiņā",
+		"price": 5.5,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Sātīgā cūkgaļas karbonāde ar šķiņķi un siera – mārrutku „cepuri” ",
+		"price": 6.2,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Cūkgaļas karbonāde ar ceptiem šampinjoniem un sieru",
+		"price": 5.4,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Cūkgaļas karbonāde ar tomātiem un sieru ",
+		"price": 5.4,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Kraukšķīgā karbonāde ar vīnogu mērci",
+		"price": 5.0,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Cūkgaļas karbonāde",
+		"price": 4.5,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Cepta krūtiņa ar olu un sīpoliem",
+		"price": 4.5,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Grilēta kakla karbonāde",
+		"price": 7.5,
+		"group": "Otrie ēdieni",
+		"subgroup": "Cūkgaļas ēdieni"
+	},{
+		"name": "Grilēta liellopa fileja ar ceptiem sīpoliem, pākšu pupiņām un vārītiem ceptiem kartupeļiem",
+		"price": 12.5,
+		"group": "Otrie ēdieni",
+		"subgroup": "Liellopa gaļas ēdieni"
+	},{
+		"name": "Šmorēta jēra gaļa ar kartupeļu daiviņām un dārzeņu salātiem",
+		"price": 8.9,
+		"group": "Otrie ēdieni",
+		"subgroup": "Jēra gaļas ēdieni"
+	},{
+		"name": "Vistas filejas karbonāde",
+		"price": 4.6,
+		"group": "Otrie ēdieni",
+		"subgroup": "Putna gaļas ēdieni"
+	},{
+		"name": "Vistas fileja ar ananāsiem un sieru",
+		"price": 5.6,
+		"group": "Otrie ēdieni",
+		"subgroup": "Putna gaļas ēdieni"
+	},{
+		"name": "Vistas gaļa ķīniešu gaumē ar rīsiem un svaigu dārzeņu salātiem",
+		"price": 3.6,
+		"group": "Otrie ēdieni",
+		"subgroup": "Putna gaļas ēdieni"
+	},{
+		"name": "Dārzeņu ragū ar salātiem",
+		"price": 4.5,
+		"group": "Dārzeņu ēdieni"
+	},{
+		"name": "Saldsskābais pupiņu un dārzeņu sautējums",
+		"price": 4.5,
+		"group": "Dārzeņu ēdieni"
+	},{
+		"name": "Salāti un piedevas (pēc izvēles) - vārīti kartupeļi, vārīti apcepti kartupeļi, fritēti kartupeļi, rīsi",
+		"description": "iekļauti ēdiena cenā",
+		"group": "Piedevas"
+	},{
+		"name": "Dārzeņu ragū",
+		"price": 1.5,
+		"group": "Piedevas"
+	},{
+		"name": "Vistas filejas strēmelītes ar makaroniem un sieru",
+		"price": 2.4,
+		"group": "Pašiem mazākajiem"
+	},{
+		"name": "Vistas fileja ar kartupeļu smaidiņiem un svaigiem dārzeņiem",
+		"price": 2.85,
+		"group": "Pašiem mazākajiem"
+	},{
+		"name": "Pašu cepta siera kūka ar zemeņu mērci",
+		"price": 3.5,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldie"
+	},{
+		"name": "Svaigu augļu salāti ar putukrējumu ",
+		"price": 2.0,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldie"
+	},{
+		"name": "Karstā pankūka ar saldējumu un šokolādes mērci ",
+		"price": 2.0,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldie"
+	},{
+		"name": "Maizes zupa ar putukrējumu ",
+		"price": 1.9,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldie"
+	},{
+		"name": "Ābolu strūdele ar vaniļas saldējumu",
+		"price": 2.9,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldie"
+	},{
+		"name": "Šokolādes desa ar pašu gatavotu ogu sorbetu",
+		"price": 2.8,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldie"
+	},{
+		"name": "Saldējums ar melno balzamu ",
+		"price": 1.8,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldējums"
+	},{
+		"name": "Saldējums ar īrisiem un banāniem ",
+		"price": 2.0,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldējums"
+	},{
+		"name": "Saldējums ar augļiem ",
+		"price": 2.0,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldējums"
+	},{
+		"name": "Saldējums ar karstiem ķiršiem ",
+		"price": 2.0,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldējums"
+	},{
+		"name": "Saldējums ar šokolādi ",
+		"price": 1.8,
+		"group": "Saldie ēdieni",
+		"subgroup": "Saldējums"
+	}
+]
