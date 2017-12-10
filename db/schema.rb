@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,21 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170512193941) do
+ActiveRecord::Schema.define(version: 20171203162646) do
 
   create_table "foods", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
     t.decimal  "price"
-    t.integer  "group_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "order"
+    t.integer  "order"
     t.boolean  "isActive"
+    t.integer  "subgroup_id"
+    t.integer  "group_id"
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string   "text"
+    t.string   "name"
     t.integer  "order"
     t.boolean  "isActive"
     t.datetime "created_at", null: false
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(version: 20170512193941) do
     t.string   "name_content_type"
     t.integer  "name_file_size"
     t.datetime "name_updated_at"
+  end
+
+  create_table "subgroups", force: :cascade do |t|
+    t.string  "name"
+    t.integer "order"
+    t.boolean "isActive"
+    t.integer "group_id"
   end
 
   create_table "users", force: :cascade do |t|

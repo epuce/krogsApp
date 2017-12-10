@@ -12,26 +12,51 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree ./plugins
+//= require_tree ./groups
+
 
 $(function() {
+
+	'use strict'
+
     var $window = $(window),
         $body = $('body'),
         $viewportMeta = $('meta[name="viewport"]'),
-        $header = $('.header'),
         $navItem = $('.js-nav-item'),
+
+        $header = $('.header'),
         $headerLogo = $header.find('.logo'),
         $headerOpenDropdown = $header.find('.js-open-drop-down'),
-        $group = $header.find('.group'),
+
         $menuWrapepr = $('.menu'),
         $page = $menuWrapepr.find('.page'),
         $allgroups = $page.find('.js-all-groups'),
+
         $gallertWrapepr = $('.gallery'),
         $picture = $gallertWrapepr.find('.picture'),
         $showMore = $gallertWrapepr.find('.show-more'),
         $hideMore = $gallertWrapepr.find('.hide-more'),
+
         $allPictures = $('.picture'),
         $visiblePictures;
+
+    $('.js-visible-group').on('click', function () {
+        var $visibleGroup = $(this),
+            $hiddenRelated = $visibleGroup.siblings('.js-hidden-group');
+
+        $visibleGroup.hide();
+
+        $hiddenRelated.show().trigger('focus');
+
+        $hiddenRelated.on('blur', function () {
+            var $hiddenRelatedVal = $hiddenRelated.val();
+
+            $visiblegroup.name($hiddenRelatedVal).show();
+
+            $(this).off('blur').hide();
+        });
+    });
 
     function mobileMetatag() {
         if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 ) {
@@ -82,52 +107,15 @@ $(function() {
     });
 
     $navItem.on('click', function(e) {
-            e.preventDefault();
-            var $this = $(this),
-                $toScroll = $('.' + $this.attr('rel')),
-                $headerHeight = 0,
-                scrollVal = $toScroll.offset().top;
+        e.preventDefault();
 
-            if ($window.width() < 768) {
-                $headerHeight = 280;
-            } else {
-                $headerHeight = $('.header').height();
-            }
+        var $this = $(this),
+            $showPage = $page.filter('.' + $this.attr('rel'));
 
-            if ($this.hasClass('js-page')) {
-                var menuScrollVal = $('.nav-1').offset().top;
-
-                $toScroll
-                    .fadeIn(500)
-                    .siblings()
-                    .hide();
-
-                $body.animate({scrollTop: menuScrollVal - $headerHeight}, 1000);
-            } else {
-                $body.animate({scrollTop: scrollVal - $headerHeight}, 1000);
-            }
-    });
-
-    $headerOpenDropdown.on('click', function(e){
-        var scrollTop = $body.scrollTop();
-
-        if (!$(e.target).hasClass('nav-admin-item')) {
-            if ($group.is(':visible')) {
-                $group.slideUp(function () {
-                    if (scrollTop < 1) {
-                        $header.removeClass("header-shadow");
-                    }
-                });
-            } else {
-                $group.slideDown();
-
-                if (scrollTop < 1) {
-                    $header.addClass("header-shadow");
-                }
-            }
-        }
-
-        $group.toggleClass('active')
+        $showPage
+            .fadeIn(500)
+            .siblings()
+           	.hide();
     });
 
     $window.on('scroll', function(){
@@ -137,10 +125,6 @@ $(function() {
 
         if ($window.width() < 768 && $window.width() < $window.height()) {
             logoToggle(scrolled);
-        }
-
-        if ($group.is(':visible')) {
-            $group.slideUp();
         }
     });
 
@@ -160,7 +144,6 @@ $(function() {
 
     $showMore.on('click', function () {
             var $allPictures = $('.picture');
-
                 $visiblePictures = $('.picture:visible');
 
         $picture.each(function (i) {

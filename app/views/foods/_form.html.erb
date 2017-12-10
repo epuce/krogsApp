@@ -1,51 +1,49 @@
 <%= form_for(@food) do |f| %>
-  <% if @food.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@food.errors.count, "error") %> prohibited this food from being saved:</h2>
+	<% if @food.errors.any? %>
+	    <div id="error_explanation">
+			<ul>
+		    	<% @food.errors.messages.values.each do |message| %>
+					<% message.each do  |msg| %>
+						<li><%= msg %></li>
+					<%end %>
+		      	<% end %>
+	      	</ul>
+	    </div>
+	<% end %>
 
-      <ul>
-      <% @food.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-    <div class="input-block name">
-      <%= f.label :name, 'Ēdiena nosaukums', class: 'label' %><br>
-      <%= f.text_field :name, class: 'input' %>
+	<div class="input-block name">
+      	<%= f.label :name, 'Ēdiena nosaukums', class: 'label' %><br>
+      	<%= f.text_field :name, class: 'input' %>
     </div>
 
     <div class="input-block description">
-      <%= f.label :description, 'apraksts?', class: 'label'%><br>
-      <%= f.text_area :description, class: 'input' %>
+      	<%= f.label :description, 'apraksts?', class: 'label'%><br>
+      	<%= f.text_area :description, class: 'input' %>
+  	</div>
+
+	<div class="input-block price">
+      	<%= f.label :price, 'Cena', class: 'label'%><br>
+      	<%= f.number_field :price, step: 0.01,class: 'input' %>
     </div>
 
-    <div class="input-block price">
-      <%= f.label :price, 'Cena', class: 'label'%><br>
-      <%= f.number_field :price, step: 0.01,class: 'input' %>
-    </div>
-
-    <div class="input-block order">
-      <%= f.label :order, 'Grupēšanas secība?', class: 'label'%><br>
-      <% if @food.order %>
-          <%= f.number_field :order, min: 1 %>
-      <% else %>
-          <%= f.number_field :order, value: Food.all.length + 1, min: 1 %>
-      <% end %>
-    </div>
+    <%= f.number_field :order, {value: Food.all.length != 0 ? Food.maximum('order') + 1 : 1, class: 'hidden'} %>
 
     <div class="input-block group">
-      <%= f.label "Ēdiena kategorija", class: 'label' %><br>
-      <%= f.collection_select :group_id, Group.all, :id, :text%>
+		<%= f.label "Kategorija", class: 'label' %><br>
+	    <%= f.collection_select :group_id, Group.all, :id, :name, {include_blank: ""}%>
     </div>
 
+	<div class="input-block group">
+		<%= f.label "Apakškategorija", class: 'label' %><br>
+		<%= f.collection_select :subgroup_id, Subgroup.all, :id, :name, {include_blank: ""}%>
+	</div>
+
     <div class="input-block is-active">
-      <%= f.label :isActive, 'Vai ēdiens ir redzams?', class: 'label'%><br>
-      <%= f.check_box :isActive, class: 'input', checked: true %>
+		<%= f.label :isActive, 'Vai ēdiens ir redzams?', class: 'label'%><br>
+		<%= f.check_box :isActive, class: 'input', checked: true %>
     </div>
 
     <div class="actions">
-      <%= f.submit 'Saglabāt', class: 'submit-btn'%>
+		<%= f.submit 'Saglabāt', class: 'submit-btn'%>
     </div>
 <% end %>

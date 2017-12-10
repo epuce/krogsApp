@@ -67,7 +67,10 @@
 
     .group {
       padding: 0;
-
+      display: inline-flex;
+      flex-direction: column;
+      text-align: left;
+      
       li {
         list-style: none;
         cursor: pointer;

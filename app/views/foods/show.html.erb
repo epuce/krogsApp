@@ -28,7 +28,7 @@
             <%= @food.order %>
           </td>
           <td class="group">
-            <%= @food.group.text %>
+			  <%= @food.group_id ? Group.find(@food.group_id).name : Subgroup.find(@food.subgroup_id).name  %>
           </td>
           <td class="is-active">
             <% if @food.isActive %>
@@ -43,4 +43,3 @@
   <%= link_to 'Labot', edit_food_path(@food), class: 'edit' %> |
   <%= link_to 'Atpakaļ', foods_path, class: 'back' %>
 </div>
-

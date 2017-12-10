@@ -30,37 +30,32 @@
     <header class="header">
         <div class="container">
 	        <div class="logo">
-								<%= link_to image_tag("logo.gif", alt: 'Krodziņš "Šlāgeris"'), root_path%>
+				<%= link_to image_tag("logo.gif", alt: 'Krodziņš "Šlāgeris"'), root_path%>
 	        </div>
 	        <nav class="nav">
 	            <ul>
 	                <li class="js-open-drop-down">
-										<a class="nav-item">Ēdienkarte</a>
+						<a class="nav-item">Ēdienkarte</a>
 
-										<ul class="group">
-											<% @groups.each do |group| %>
-													<% if group.isActive %>
-															<li class="nav-item js-nav-item js-page" rel="page-<%=group.id%>"><%= group.text %></li>
-													<% end %>
-											<% end %>
-										</ul>
+						<% if User.find_by(id: session[:user_id]) %>
+							<%= link_to 'administrēt', foods_path, class:'nav-admin-item' %>
+						<% end %>
+					</li>
 
-										<% if User.find_by(id: session[:user_id]) %>
-												<%= link_to 'administrēt', foods_path, class:'nav-admin-item' %>
-										<% end %>
-									</li>
-	                <li>
-										<%= link_to raw('Krodziņš 360&deg;'), root_path, class:'nav-item js-nav-item', rel: 'nav-2' %>
+					<li>
+						<%= link_to raw('Krodziņš 360&deg;'), root_path, class:'nav-item js-nav-item', rel: 'nav-2' %>
 	                </li>
-	                <li>
-										<%= link_to 'Galerija', root_path, class:'nav-item js-nav-item', rel: 'nav-3' %>
 
-										<% if User.find_by(id: session[:user_id]) %>
-												<%= link_to 'administrēt', pictures_path, class:'nav-admin-item' %>
-										<% end %>
-	                </li>
 	                <li>
-										<%= link_to 'Kontakti', root_path, class:'nav-item js-nav-item', rel: 'nav-4' %>
+						<%= link_to 'Galerija', root_path, class:'nav-item js-nav-item', rel: 'nav-3' %>
+
+						<% if User.find_by(id: session[:user_id]) %>
+							<%= link_to 'administrēt', pictures_path, class:'nav-admin-item' %>
+						<% end %>
+	                </li>
+
+	                <li>
+						<%= link_to 'Kontakti', root_path, class:'nav-item js-nav-item', rel: 'nav-4' %>
 	                </li>
 	            </ul>
 	        </nav>

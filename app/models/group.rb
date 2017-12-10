@@ -1,4 +1,5 @@
 class Group < ActiveRecord::Base
   has_many :foods
-  validates :text, presence: true
+  has_many :subgroups
+  validates :name, presence: true
 end
