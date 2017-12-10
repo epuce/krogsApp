@@ -33,7 +33,7 @@ JSON.parse(File.read("db/data/edieni.json")).each do |item|
 		description: item["subgroup"] != nil ? item["description"] : nil,
 		price: item["price"],
 		isActive: true,
-		order: Food.all.length != 0 ? Food.maximum('order').to_i + 1 ? : 1,
+		order: Food.all.length != 0 ? Food.maximum('order').to_i + 1 : 1,
 		group_id: item["subgroup"] == nil  ? Group.where(name: item["group"]).ids[0] : nil,
 		subgroup_id: item["group"].length != 0 ? Subgroup.where(name: item["subgroup"]).ids[0] : nil
 	)
