@@ -15,7 +15,7 @@ JSON.parse(File.read("db/data/edieni.json")).each do |item|
 		Group.create(
 			name: item["group"],
 			isActive: true,
-			order: Group.all.length != 0 ? Group.maximum('order') + 1 : 1,
+			order: Group.all.length != 0 ? Group.maximum('order').to_i + 1 : 1,
 		)
 	end
 
@@ -23,7 +23,7 @@ JSON.parse(File.read("db/data/edieni.json")).each do |item|
 		Subgroup.create(
 			name: item["subgroup"],
 			isActive: true,
-			order: Subgroup.all.length != 0 ? Subgroup.maximum('order') + 1 : 1,
+			order: Subgroup.all.length != 0 ? Subgroup.maximum('order').to_i + 1 : 1,
 			group_id: Group.where(name: item["group"]).ids[0]
 		)
 	end
@@ -33,7 +33,7 @@ JSON.parse(File.read("db/data/edieni.json")).each do |item|
 		description: item["subgroup"] != nil ? item["description"] : nil,
 		price: item["price"],
 		isActive: true,
-		order: Food.all.length != 0 ? Food.maximum('order') + 1 : 1,
+		order: Food.all.length != 0 ? Food.maximum('order').to_i + 1 : 1,
 		group_id: item["subgroup"] == nil  ? Group.where(name: item["group"]).ids[0] : nil,
 		subgroup_id: item["group"].length != 0 ? Subgroup.where(name: item["subgroup"]).ids[0] : nil
 	)
