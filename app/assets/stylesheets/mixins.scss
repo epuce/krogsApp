@@ -1,0 +1,522 @@
+// Table of contents
+
+// === Responsiveness mixin examples
+// === Responsiveness mixin
+// === Placeholder mixin
+// === Clearfix mixin
+// === Vendor prefix mixin
+// === UserSelect mixin
+// === Display Flexbox mixin
+// === Flex direction mixin
+// === Flex wrap mixin
+// === Flex flow mixin
+// === Flexbox order mixin
+// === Flexbox grow mixin
+// === Flexbox shrink mixin
+// === Flexbox basis mixin
+// === Flexbox flex mixin
+// === Flexbox justify content mixin
+// === Flexbox align items mixin
+// === Flexbox align self mixin
+// === Flexbox align content mixin
+// === Close button (X) mixin
+// === Internet Explorer and Edge fallback
+
+
+
+//============ Responsiveness mixin examples start ===============
+
+// @include responsive-width('min-width', none) { }
+// @include responsive-width(none, 'max-width') { }
+// @include responsive-width(min-width, 'max-width') { }
+// @include responsive-width('min-width', none, 'orientation') { }
+// @include responsive-width(none, 'max-width', 'orientation') { }
+// @include responsive-width(min-width, 'max-width', orientation) { }
+
+//============ Responsiveness mixin examples end ===============
+
+
+
+//============ Responsiveness mixin start ===============
+
+@mixin responsive-width ($min_width: none, $max_width: none, $orientation: none) {
+  $value1: map-get($breakpoints, $min_width);
+  $value2: map-get($breakpoints, $max_width);
+  $value3: map-get($screenOrientations, $orientation);
+
+  // min-width
+  @if map-has-key($breakpoints, $min_width) and $max_width == none and $orientation == none {
+
+    @media screen and (min-width: $value1) {
+      @content;
+    }
+
+    //min-width and orientation
+  } @else if map-has-key($breakpoints, $min_width) and $max_width == none and map-has-key($screenOrientations, $orientation) {
+
+    @media screen and (min-width: $value1) and (orientation: $value3) {
+      @content;
+    }
+
+    //max-width
+  } @else if $min_width == none and map-has-key($breakpoints, $max_width) and $orientation == none {
+
+    @media screen and (max-width: $value2) {
+      @content;
+    }
+
+    //max-width and orientation
+  } @else if $min_width == none and map-has-key($breakpoints, $max_width) and map-has-key($screenOrientations, $orientation) {
+
+    @media screen and (max-width: $value2) and (orientation: $value3) {
+      @content;
+    }
+
+    //min-width and max-width
+  } @else if map-has-key($breakpoints, $min_width) and map-has-key($breakpoints, $max_width) and $orientation == none {
+
+    @media screen and (min-width: $value1) and (max-width: $value2) {
+      @content;
+    }
+
+    //min-width and max-width and orientation
+  } @else if map-has-key($breakpoints, $min_width) and map-has-key($breakpoints, $max_width) and map-has-key($screenOrientations, $orientation) {
+
+    @media screen and (min-width: $value1) and (max-width: $value2) and (orientation: $value3) {
+      @content;
+    }
+    //orientation
+  } @else if $min_width == none and $max_width == none and map-has-key($screenOrientations, $orientation) {
+
+    @media screen and (orientation: $value3) {
+      @content;
+    }
+
+    //min-width and max-width
+  }
+}
+
+//============ Responsiveness mixin end ===============
+
+
+
+//============ Placeholder mixin start ===========
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} {
+    @content;
+  }
+}
+@mixin placeholderConstructor {
+  @include optional-at-root('::-webkit-input-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root('::-moz-placeholder') {
+    @content;
+  }
+
+  @include optional-at-root(':-ms-input-placeholder') {
+    @content;
+  }
+}
+
+//============ Placeholder mixin end ===========
+
+
+
+//============ Cleafix mixin start ===========
+
+@mixin clearfix {
+  &:after {
+    display: table;
+    clear: both;
+
+    content: "";
+  }
+}
+
+//============ Cleafix mixin end ===========
+
+
+
+//============ Vendor prefix mixin start ===========
+
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  #{$property}: $value;
+}
+
+//============ Vendor prefix mixin end ===========
+
+//============ Multi-rule vendor prefix mixin stert =========
+// Mixin to prefix several properties at once
+// @param {Map} $declarations - Declarations to prefix
+// @param {List} $prefixes (()) - List of prefixes to print
+@mixin prefix-multi($declarations, $prefixes: ()) {
+  @each $property, $value in $declarations {
+    @each $prefix in $prefixes {
+      #{'-' + $prefix + '-' + $property}: $value;
+    }
+
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+  }
+}
+
+// Usage:
+//  .selector {
+//    @include prefix((
+//            column-count: 3,
+//            column-gap: 1.5em,
+//            column-rule: 2px solid hotpink
+//    ), webkit moz);
+//  }
+// =========== Multi-rule vendor prefix mixin end ============
+
+
+
+//============ UserSelect mixin start ===========
+@mixin UserSelect($prop) {
+  -moz-user-select: $prop;
+  -webkit-user-select: $prop;
+  -ms-user-select: $prop;
+  user-select: $prop;
+}
+//============ UserSelect mixin end ===========
+
+
+//============  Display Flexbox mixin start ===========
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+%flexbox { @include flexbox; }
+
+//----------------------------------
+
+@mixin inline-flex {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+%inline-flex { @include inline-flex; }
+//============  Display Flexbox mixin end ===========
+
+
+
+//============  Flex direction mixin start ===========
+@mixin flex-direction($value: row) {
+  @if $value == row-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: horizontal;
+  } @else if $value == column {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+  } @else if $value == column-reverse {
+    -webkit-box-direction: reverse;
+    -webkit-box-orient: vertical;
+  } @else {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+  }
+  -webkit-flex-direction: $value;
+  -moz-flex-direction: $value;
+  -ms-flex-direction: $value;
+  flex-direction: $value;
+}
+// Shorthand version:
+@mixin flex-dir($args...) { @include flex-direction($args...); }
+//============  Flex direction mixin end ===========
+
+
+
+//============  Flex wrap mixin start ===========
+@mixin flex-wrap($value: nowrap) {
+  // No Webkit Box fallback.
+  -webkit-flex-wrap: $value;
+  -moz-flex-wrap: $value;
+  @if $value == nowrap {
+    -ms-flex-wrap: none;
+  } @else {
+    -ms-flex-wrap: $value;
+  }
+  flex-wrap: $value;
+}
+//============  Flex wrap mixin end ===========
+
+
+
+//============  Flex flow mixin start ===========
+@mixin flex-flow($values: (row nowrap)) {
+  -webkit-flex-flow: $values;
+  -moz-flex-flow: $values;
+  -ms-flex-flow: $values;
+  flex-flow: $values;
+}
+//============  Flex flow mixin end ===========
+
+
+
+//============  Flexbox order mixin start ===========
+@mixin order($int: 0) {
+  -webkit-box-ordinal-group: $int + 1;
+  -webkit-order: $int;
+  -moz-order: $int;
+  -ms-flex-order: $int;
+  order: $int;
+}
+//============  Flexbox order mixin end ===========
+
+
+
+//============  Flexbox grow mixin start ===========
+@mixin flex-grow($int: 0) {
+  -webkit-box-flex: $int;
+  -webkit-flex-grow: $int;
+  -moz-flex-grow: $int;
+  -ms-flex-positive: $int;
+  flex-grow: $int;
+}
+//============  Flexbox grow mixin end ===========
+
+
+
+//============  Flexbox shrink mixin start ===========
+@mixin flex-shrink($int: 1) {
+  -webkit-flex-shrink: $int;
+  -moz-flex-shrink: $int;
+  -ms-flex-negative: $int;
+  flex-shrink: $int;
+}
+//============  Flexbox shrink mixin end ===========
+
+
+
+//============  Flexbox basis mixin start ===========
+@mixin flex-basis($value: auto) {
+  -webkit-flex-basis: $value;
+  -moz-flex-basis: $value;
+  -ms-flex-preferred-size: $value;
+  flex-basis: $value;
+}
+//============  Flexbox basis mixin end ===========
+
+
+
+//============  Flexbox flex mixin start ===========
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+
+  // Set a variable to be used by box-flex properties
+  $fg-boxflex: $fg;
+
+  // Box-Flex only supports a flex-grow value so let's grab the
+  // first item in the list and just return that.
+  @if type-of($fg) == 'list' {
+    $fg-boxflex: nth($fg, 1);
+  }
+
+  -webkit-box-flex: $fg-boxflex;
+  -webkit-flex: $fg $fs $fb;
+  -moz-box-flex: $fg-boxflex;
+  -moz-flex: $fg $fs $fb;
+  -ms-flex: $fg $fs $fb;
+  flex: $fg $fs $fb;
+}
+//============  Flexbox flex mixin end ===========
+
+
+
+//============  Flexbox justify content mixin start ===========
+@mixin justify-content($value: flex-start) {
+  @if $value == flex-start {
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+  } @else if $value == flex-end {
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+  } @else if $value == space-between {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+  } @else if $value == space-around {
+    -ms-flex-pack: distribute;
+  } @else {
+    -webkit-box-pack: $value;
+    -ms-flex-pack: $value;
+  }
+  -webkit-justify-content: $value;
+  -moz-justify-content: $value;
+  justify-content: $value;
+}
+// Shorthand version:
+@mixin flex-just($args...) { @include justify-content($args...); }
+//============  Flexbox justify content mixin end ===========
+
+
+
+//============  Flexbox align items mixin start ===========
+@mixin align-items($value: stretch) {
+  @if $value == flex-start {
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+  } @else if $value == flex-end {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+  } @else {
+    -webkit-box-align: $value;
+    -ms-flex-align: $value;
+  }
+  -webkit-align-items: $value;
+  -moz-align-items: $value;
+  align-items: $value;
+}
+//============  Flexbox align items mixin end ===========
+
+
+
+//============  Flexbox align self mixin start ===========
+@mixin align-self($value: auto) {
+  // No Webkit Box Fallback.
+  -webkit-align-self: $value;
+  -moz-align-self: $value;
+  @if $value == flex-start {
+    -ms-flex-item-align: start;
+  } @else if $value == flex-end {
+    -ms-flex-item-align: end;
+  } @else {
+    -ms-flex-item-align: $value;
+  }
+  align-self: $value;
+}
+//============  Flexbox align self mixin end ===========
+
+
+
+//============  Flexbox align content mixin start ===========
+@mixin align-content($value: stretch) {
+  // No Webkit Box Fallback.
+  -webkit-align-content: $value;
+  -moz-align-content: $value;
+  @if $value == flex-start {
+    -ms-flex-line-pack: start;
+  } @else if $value == flex-end {
+    -ms-flex-line-pack: end;
+  } @else {
+    -ms-flex-line-pack: $value;
+  }
+  align-content: $value;
+}
+//============  Flexbox align content mixin end ===========
+
+
+
+//============  Close button (X) mixin start ===========
+
+@mixin close-button($size: 60px, $color: #ababab, $width: 2px) {
+
+  height: $size;
+  width: $size;
+
+  display: inline-block;
+
+  cursor: pointer;
+
+  &:before,
+  &:after {
+    position: absolute;
+    top: 0;
+
+    width: $width;
+    height: $size;
+
+    display: block;
+
+    background: $color;
+    content: '';
+  }
+
+  &:before {
+    right: calc(50% - 1px);
+
+    @include prefix(transform, rotate(45deg), webkit ms);
+  }
+
+  &:after {
+    left: 50%;
+
+    @include prefix(transform, rotate(-45deg), webkit ms);
+  }
+}
+
+//============  Close button (X) mixin end ===========
+
+
+
+//============  Internet Explorer and Edge fallback start ===========
+
+@mixin ie-fallback() {
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+
+  @supports (-ms-ime-align:auto) {
+    @content;
+  }
+}
+
+//============  Internet Explorer and Edge fallback end ===========
+
+
+//============  Animations start ==========
+
+@mixin slide-animation($direction) {
+  @at-root (without: media) {
+
+    @keyframes slide-in-#{$direction} {
+      $translate: 0;
+      $offset: 0;
+
+      @if $direction == 'top' or $direction == 'left' {
+        $offset: -50px;
+      } @else {
+        $offset: 50px;
+      }
+
+      @if $direction == 'left' or $direction == 'right' {
+        $translate: translateX($offset);
+      } @else {
+        $translate: translateY($offset);
+      }
+
+      0% {
+        opacity: 0;
+        transform: $translate;
+      }
+
+      100% {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+  }
+}
+
+@mixin slide-in($direction) {
+  animation: slide-in-#{$direction} .5s linear;
+}
+//============  Animations end ==========
