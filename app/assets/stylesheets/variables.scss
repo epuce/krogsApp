@@ -4,3 +4,8 @@ $breakpoints: (
   tablet-max: 1024px,
   desktop-min: 1025px,
 );
+
+$screenOrientations: (
+        portrait: 'portrait',
+        landscape: 'landscape'
+);
