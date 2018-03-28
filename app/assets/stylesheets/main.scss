@@ -32,6 +32,18 @@
 .menu {
   padding: 40px 40px 40px 50px;
 
+  .subgroup {
+    margin-left: 25px;
+  }
+
+  .group-title {
+    font-size: 28px;
+  }
+
+  .subgroup-title {
+    font-size: 22px;
+  }
+
   .page {
     position: relative;
     display: none;
@@ -44,6 +56,7 @@
       margin-bottom: 15px;
       width: 100%;
       display: inline-block;
+      font-size: 18px;
     }
 
     .eur {
@@ -65,14 +78,13 @@
       text-align: center;
     }
 
-    .group {
+    .groups {
       padding: 0;
       display: inline-flex;
       flex-direction: column;
       text-align: left;
       
       li {
-        list-style: none;
         cursor: pointer;
       }
     }

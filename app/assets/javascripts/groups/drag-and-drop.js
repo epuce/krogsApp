@@ -1,32 +1,43 @@
 $(function() {
 
-  'use strict'
+  'use strict';
 
   var $groupWrapper = $('.group-wrapper'),
-      $subgroupWrapper = $('.subgroup-wrapper');
+      $subgroupWrapper = $('.subgroup-wrapper'),
+      $picturesWrapper = $('.pictures-wrapper');
 
   // Init group drag and drop, set the new order value
   $groupWrapper.sortable({
-    update: function() {
-      $(this).find('.group').each(function(i){
-        $(this)
-          .find('.order')
-          .val(i+1);
+      update: function() {
+          $groupWrapper.find('.group').each(function(i){
+              $(this)
+                  .find('.order')
+                  .val(i+1);
       });
     }
   });
 
   // Init subgroup drag and drop, set the new order value
   $subgroupWrapper.sortable({
-    update: function() {
-      $(this).find('.subgroup').each(function(i){
+      update: function() {
+          $subgroupWrapper.find('.subgroup').each(function(i){
 
-        console.log(i)
+              $(this)
+                  .find('.order')
+                  .val(i+1);
+          });
+      }
+  });
 
-        $(this)
-          .find('.order')
-          .val(i+1);
-      });
-    }
+  // Init picture drag and drop, set the new order value
+  $picturesWrapper.sortable({
+      update: function() {
+        $picturesWrapper.find('.picture').each(function(i){
+
+          $(this)
+              .find('.order')
+              .val(i+1);
+        });
+      }
   });
 });

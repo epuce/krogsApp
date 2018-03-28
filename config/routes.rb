@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :users
-  resources :pictures
+  resources :pictures do
+    collection do
+      put 'update_multiple'
+    end
+  end
   resources :foods
   resources :groups do
     collection do

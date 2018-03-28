@@ -3,45 +3,35 @@
 
   <h1 class="">Bilžu saraksts</h1>
 
-  <table>
-    <thead class="table-head">
-      <tr>
-        <td class="picture">Bilde</td>
-        <td class="order">Secība</td>
-        <td class="is-active">Tiek parādīta?</td>
-      </tr>
-    </thead>
+  <%= form_tag update_multiple_pictures_path, method: :put do %>
 
-    <tbody class="table-body">
-    <% @pictures.each do |picture| %>
-        <tr>
-          <td class="picture">
-            <%= image_tag picture.name.url %>
-          </td>
-          <td class="order">
-            <span class="mobile-label">Secība:</span>
-            <%= picture.order %>
-          </td>
-          <td class="is-active">
-            <span class="mobile-label">Tiek parādīta:</span>
-            <% if picture.isActive %>
-                Jā
-            <% else %>
-                Nē
+      <div class="pictures-wrapper">
+
+        <% @pictures.order(:order).each do |picture| %>
+
+            <%= fields_for "pictures[]", picture do |f| %>
+
+                <div class="picture js-toggle-check <%= 'disabled' if !picture.isActive %>">
+                  <%= image_tag picture.name.url %>
+
+                  <%= f.number_field :order, {value: picture.order, class: 'order hidden'} %>
+
+                  <%= f.check_box :isActive, {value: picture.isActive, class: 'is-active hidden'} %>
+                </div>
+
             <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td class="show" ><%= link_to 'Parādīt', picture %></td>
-          <td class="edit"><%= link_to 'Labot', edit_picture_path(picture) %></td>
-          <td class="delete"><%= link_to 'Dzēst', picture, method: :delete, data: { confirm: 'Vai esi parliecināts?' } %></td>
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
 
-  <br>
+            <%= link_to 'Dzēst', picture, class: 'btn btn-xs btn-basic', method: :delete, data: { confirm: 'Esi pārliecināts?' } %>
 
-  <%= link_to 'Pievienot jaunu bildi', new_picture_path, class: 'add' %>
+        <% end %>
+
+        <%= link_to 'Pievienot jaunu bildi', new_picture_path, class: 'btn btn-xs btn-basic' %>
+
+      </div>
+
+      <%= submit_tag 'Saglabāt izmaiņas', class:'btn btn-xs btn-basic' %>
+
+  <% end %>
+
 </div>
 

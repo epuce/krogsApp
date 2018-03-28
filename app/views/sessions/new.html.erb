@@ -9,17 +9,17 @@
         <legend> Lūdzu pierakstieties </legend>
 
         <div>
-          <%= label_tag :name, 'Name:' %>
+          <%= label_tag :name, 'Lietotājvārds:' %>
           <%= text_field_tag :name, params[:name] %>
         </div>
 
         <div>
-          <%= label_tag :password, 'Password:' %>
+          <%= label_tag :password, 'Parole:' %>
           <%= password_field_tag :password, params[:password] %>
         </div>
 
         <div>
-          <%= submit_tag "Login" %>
+          <%= submit_tag "Pierakstīties", class:'btn btn-s btn-submit' %>
         </div>
       </fieldset>
   <% end %>

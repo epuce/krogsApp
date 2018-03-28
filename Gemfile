@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~>4.3.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -24,7 +24,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem "paperclip", "~> 5.0.0"
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7', platform: :ruby
+gem 'bcrypt', '~> 3.1.11', platforms: [:ruby, :x64_mingw, :mingw]
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -35,8 +35,6 @@ gem 'bcrypt', '~> 3.1.7', platform: :ruby
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
 group :development do
@@ -44,9 +42,7 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
-group :production do
-  gem 'pg'
-end
+gem 'pg', '0.21.0'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

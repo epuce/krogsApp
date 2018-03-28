@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Šlāgeris</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
@@ -25,50 +26,58 @@
 	<meta name="msapplication-TileImage" content="/assets/favicons/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
 	<div class="bg-image"></div>
-    <header class="header">
-        <div class="container">
-	        <div class="logo">
-				<%= link_to image_tag("logo.gif", alt: 'Krodziņš "Šlāgeris"'), root_path%>
-	        </div>
-	        <nav class="nav">
-	            <ul>
-	                <li class="js-open-drop-down">
-						<a class="nav-item">Ēdienkarte</a>
+
+	<header class="header">
+		<div class="container">
+			<!--<div class="logo">-->
+
+				<!--<%= link_to image_tag("logo.gif", alt: 'Krodziņš "Šlāgeris"'), root_path, class:'nav-item js-nav-item', rel: 'nav-0'%>-->
+
+			<!--</div>-->
+
+			<nav class="nav">
+				<ul>
+					<li>
+						<%= link_to 'Ēdienkarte', root_path, class:'nav-item js-nav-item', rel: 'nav-1' %>
 
 						<% if User.find_by(id: session[:user_id]) %>
-							<%= link_to 'administrēt', foods_path, class:'nav-admin-item' %>
+								<%= link_to 'administrēt', foods_path, class:'nav-item-admin' %>
 						<% end %>
 					</li>
 
 					<li>
 						<%= link_to raw('Krodziņš 360&deg;'), root_path, class:'nav-item js-nav-item', rel: 'nav-2' %>
-	                </li>
+					</li>
 
-	                <li>
+					<li>
 						<%= link_to 'Galerija', root_path, class:'nav-item js-nav-item', rel: 'nav-3' %>
 
 						<% if User.find_by(id: session[:user_id]) %>
-							<%= link_to 'administrēt', pictures_path, class:'nav-admin-item' %>
+							<%= link_to 'administrēt', pictures_path, class:'nav-item-admin' %>
 						<% end %>
-	                </li>
+					</li>
 
-	                <li>
+					<li>
 						<%= link_to 'Kontakti', root_path, class:'nav-item js-nav-item', rel: 'nav-4' %>
-	                </li>
-	            </ul>
-	        </nav>
-	    </div>
-			<div class="admin-cred">
-				<% if User.find_by(id: session[:user_id]) %>
-						Jūs esiet pierakstījies kā: <%= User.find(session[:user_id]).name %>
-						<%= button_to 'Izrakstīties', logout_path, :method => :delete %>
-				<% end %>
-			</div>
+					</li>
+				</ul>
+			</nav>
+		</div>
+
+		<div class="admin-cred">
+			<% if User.find_by(id: session[:user_id]) %>
+					Jūs esiet pierakstījies kā: <%= User.find(session[:user_id]).name %>
+
+					<%= button_to 'Izrakstīties', logout_path, :method => :delete, class:'btn btn-xs btn-basic'%>
+			<% end %>
+		</div>
 	</header>
-    <div class="main-container">
-        <%= yield %>
-    </div>
+
+	<div class="main-container">
+		<%= yield %>
+	</div>
 </body>
 </html>

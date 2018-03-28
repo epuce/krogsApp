@@ -18,7 +18,7 @@
 
 $(function() {
 
-	'use strict'
+	'use strict';
 
     var $window = $(window),
         $body = $('body'),
@@ -27,42 +27,30 @@ $(function() {
 
         $header = $('.header'),
         $headerLogo = $header.find('.logo'),
-        $headerOpenDropdown = $header.find('.js-open-drop-down'),
 
         $menuWrapepr = $('.menu'),
         $page = $menuWrapepr.find('.page'),
-        $allgroups = $page.find('.js-all-groups'),
+        $allGroups = $page.find('.js-all-groups'),
+        $firstPage = $page.filter('.page-0'),
 
-        $gallertWrapepr = $('.gallery'),
-        $picture = $gallertWrapepr.find('.picture'),
-        $showMore = $gallertWrapepr.find('.show-more'),
-        $hideMore = $gallertWrapepr.find('.hide-more'),
+        galleryWrapper = $('.gallery'),
+        $picture = galleryWrapper.find('.picture'),
+        $showMore = galleryWrapper.find('.show-more'),
+        $hideMore = galleryWrapper.find('.hide-more'),
+
+        $picturesWrapper = $('.pictures-wrapper'),
+        $checkPicture = $picturesWrapper.find('.js-toggle-check'),
 
         $allPictures = $('.picture'),
         $visiblePictures;
 
-    $('.js-visible-group').on('click', function () {
-        var $visibleGroup = $(this),
-            $hiddenRelated = $visibleGroup.siblings('.js-hidden-group');
-
-        $visibleGroup.hide();
-
-        $hiddenRelated.show().trigger('focus');
-
-        $hiddenRelated.on('blur', function () {
-            var $hiddenRelatedVal = $hiddenRelated.val();
-
-            $visiblegroup.name($hiddenRelatedVal).show();
-
-            $(this).off('blur').hide();
-        });
-    });
+    galleryWrapper.find('a').simpleLightbox();
 
     function mobileMetatag() {
         if ( navigator.userAgent.match(/(iPhone|Android)/) && $window.width() < 768 ) {
-            if ($window.width() < $window.height()) {
+            if (matchMedia('(orientation:landscape)').matches) {
                 $viewportMeta.attr('content', 'width=640, user-scalable=no');
-            } else if ($window.width() > $window.height()) {
+            } else {
                 $viewportMeta.attr('content', 'width=767, user-scalable=no');
             }
         }
@@ -91,42 +79,11 @@ $(function() {
         }
     }
 
-    function logoToggle(scrolled){
-        if (scrolled >= 1) {
-            $headerLogo.slideUp();
-        } else {
-            $headerLogo.slideDown()
-        }
+    function scrollToElement(scroll) {
+        console.log(scroll);
+
+        $window.scrollTop(scroll);
     }
-
-    $window.on('orientationchange', function () {
-        $viewportMeta.attr('content', 'width=device-width, initial-scale=1, maximum-scale=1');
-        mobileMetatag();
-
-        $headerLogo.css('display','inline-block')
-    });
-
-    $navItem.on('click', function(e) {
-        e.preventDefault();
-
-        var $this = $(this),
-            $showPage = $page.filter('.' + $this.attr('rel'));
-
-        $showPage
-            .fadeIn(500)
-            .siblings()
-           	.hide();
-    });
-
-    $window.on('scroll', function(){
-        var scrolled = $window.scrollTop();
-
-        headerShadow(scrolled);
-
-        if ($window.width() < 768 && $window.width() < $window.height()) {
-            logoToggle(scrolled);
-        }
-    });
 
     $picture.each(function (i) {
         var $this = $(this);
@@ -140,6 +97,58 @@ $(function() {
         if (i === $allPictures.length-1) {
             showHidePicture()
         }
+    });
+
+    $window.on('orientationchange', function () {
+        $viewportMeta.attr('content', 'width=device-width, initial-scale=1, maximum-scale=1');
+        mobileMetatag();
+
+        $headerLogo.css('display','inline-block')
+    });
+
+    $window.on('scroll', function(){
+        var scrolled = $window.scrollTop();
+
+        headerShadow(scrolled);
+    });
+
+    $navItem.on('click', function (e) {
+        e.preventDefault();
+
+        var $this = $(this),
+            destElementOffset = $body.find('.'+$this.attr('rel')).offset().top;
+
+        scrollToElement(destElementOffset - $header.outerHeight(true))
+    });
+
+    $checkPicture.on('click', function () {
+        var $this = $(this),
+           $isActiveField = $this.find('.is-active');
+
+        $this.toggleClass('disabled');
+
+        if ($isActiveField.prop('checked')) {
+            $isActiveField.prop('checked', false);
+        } else {
+            $isActiveField.prop('checked', true);
+        }
+    });
+
+    $('.js-visible-group').on('click', function () {
+        var $this = $(this),
+            $hiddenRelated = $this.siblings('.js-hidden-group');
+
+        $this.hide();
+
+        $hiddenRelated.show().trigger('focus');
+
+        $hiddenRelated.on('blur', function () {
+            var $hiddenRelatedVal = $hiddenRelated.val();
+
+            $this.name($hiddenRelatedVal).show();
+
+            $this.off('blur').hide();
+        });
     });
 
     $showMore.on('click', function () {
@@ -189,29 +198,16 @@ $(function() {
         $hideMore.hide();
     });
 
-    $allgroups.on('click', function () {
-        var $headerHeight = 0,
-            menuScrollVal = $('.nav-1').offset().top;
+    $allGroups.on('click', function () {
+        var  menuScrollVal = $('.nav-1').offset().top;
 
-        $('.page-0')
+        $firstPage
             .fadeIn(500)
             .siblings()
             .hide();
 
-        if ($window.width() < 768) {
-            $headerHeight = 280;
-        } else {
-            $headerHeight = $header.height();
-        }
-
-        $body.animate({scrollTop: menuScrollVal - $headerHeight}, 1000);
+        scrollToElement(menuScrollVal - $header.height())
     });
-
-    $gallertWrapepr.find('a').simpleLightbox();
-
-    if ($window.width() < 768 && $window.width() < $window.height()) {
-        logoToggle($window.scrollTop());
-    }
 
     headerShadow($window.scrollTop());
 
